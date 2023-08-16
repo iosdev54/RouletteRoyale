@@ -32,25 +32,9 @@ struct LoginView: View {
             }
             .padding(.horizontal)
             
-            Button(action: { viewModel.signIn() }) {
-                if viewModel.isLoading {
-                    ProgressView()
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue.opacity(0.9))
-                        .cornerRadius(10)
-                } else {
-                    Text("Log In")
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.blue)
-                        .cornerRadius(10)
-                }
-            }
-            .disabled(viewModel.isLoading)
-            .animation(.easeInOut, value: viewModel.isLoading)
+            CustomButton(isLoading: $viewModel.isLoading, title: "Log In", color: .blue, completion: { viewModel.signIn() })
+                .disabled(viewModel.isLoading)
+                .animation(.easeInOut, value: viewModel.isLoading)
         }
         .padding()
         .alert(item: $viewModel.error) { error in

@@ -8,30 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var isLoggedIn = false {
-        didSet {
-            print(isLoggedIn)
-        }
-    }
+    @State private var isLoggedIn = false
     
     var body: some View {
         Group {
             if isLoggedIn {
-                TabBarView()
+                TabBarView(isLoggedIn: $isLoggedIn)
             } else {
                 AuthenticationControlView(isLoggedIn: $isLoggedIn)
             }
         }
         .onAppear {
-//            FirebaseService.shared.configure()
             checkUserAuthenticationStatus()
         }
     }
     
     private func checkUserAuthenticationStatus() {
-            isLoggedIn = FirebaseService.shared.isUserLoggedIn()
-        }
-
+        isLoggedIn = FirebaseService.shared.isUserLoggedIn()
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

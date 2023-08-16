@@ -25,6 +25,8 @@
 		18BFCD432A8CD91A00559CA3 /* AuthenticationControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */; };
 		18BFCD452A8CD94C00559CA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD442A8CD94C00559CA3 /* ContentView.swift */; };
 		18FF6CDD2A8D070200FEE72C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */; };
+		18FF6CE22A8D10F300FEE72C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF6CE12A8D10F300FEE72C /* CustomButton.swift */; };
+		18FF6CE72A8D152800FEE72C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF6CE62A8D152800FEE72C /* SettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationControlView.swift; sourceTree = "<group>"; };
 		18BFCD442A8CD94C00559CA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		18FF6CE12A8D10F300FEE72C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		18FF6CE62A8D152800FEE72C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +127,7 @@
 				18BFCD3B2A8CCC9D00559CA3 /* Main */,
 				183B5F3A2A8CBEA8000537B7 /* Login */,
 				18FF6CD92A8D06AC00FEE72C /* SignUp */,
+				18FF6CE02A8D10A900FEE72C /* Settings */,
 			);
 			path = RouletteRoyaleBuilder;
 			sourceTree = "<group>";
@@ -185,10 +190,10 @@
 		18BFCD3B2A8CCC9D00559CA3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */,
-				18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */,
 				18BFCD442A8CD94C00559CA3 /* ContentView.swift */,
-				185C537A2A8CE8A9005A1F70 /* SettingsView.swift */,
+				18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */,
+				18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */,
+				18FF6CE12A8D10F300FEE72C /* CustomButton.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -214,6 +219,31 @@
 			isa = PBXGroup;
 			children = (
 				18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18FF6CE02A8D10A900FEE72C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				18FF6CE42A8D150700FEE72C /* View */,
+				18FF6CE52A8D151100FEE72C /* ViewModel */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		18FF6CE42A8D150700FEE72C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				185C537A2A8CE8A9005A1F70 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18FF6CE52A8D151100FEE72C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18FF6CE62A8D152800FEE72C /* SettingsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -306,6 +336,8 @@
 				18BFCD3A2A8CC91900559CA3 /* FirebaseService.swift in Sources */,
 				1893DCFE2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift in Sources */,
 				18BFCD3F2A8CD72500559CA3 /* TabBarView.swift in Sources */,
+				18FF6CE72A8D152800FEE72C /* SettingsViewModel.swift in Sources */,
+				18FF6CE22A8D10F300FEE72C /* CustomButton.swift in Sources */,
 				183B5F3E2A8CBF4E000537B7 /* SignUpView.swift in Sources */,
 				18FF6CDD2A8D070200FEE72C /* SignUpViewModel.swift in Sources */,
 				181BC0F82A8CF75D001253ED /* LoginViewModel.swift in Sources */,

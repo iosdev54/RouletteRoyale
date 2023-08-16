@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct TabBarView: View {
+    @Binding var isLoggedIn: Bool
     
     var body: some View {
         TabView {
@@ -23,7 +24,7 @@ struct TabBarView: View {
                     Label("Rating", systemImage: "star")
                 }
             
-            SettingsView()
+            SettingsView(isLoggedIn: $isLoggedIn)
                 .tabItem {
                     Label("Settings", systemImage: "gear")
                 }
@@ -33,6 +34,6 @@ struct TabBarView: View {
 
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
-        TabBarView()
+        TabBarView(isLoggedIn: .constant(false))
     }
 }

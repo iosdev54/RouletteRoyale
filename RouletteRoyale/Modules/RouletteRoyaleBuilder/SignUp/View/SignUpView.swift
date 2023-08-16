@@ -35,25 +35,9 @@ struct SignUpView: View {
             }
             .padding(.horizontal)
             
-            Button(action: { viewModel.signUp() }) {
-                if viewModel.isLoading {
-                    ProgressView()
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.green.opacity(0.9))
-                        .cornerRadius(10)
-                } else {
-                    Text("Sign Up")
-                        .foregroundColor(.white)
-                        .padding()
-                        .frame(maxWidth: .infinity)
-                        .background(Color.green)
-                        .cornerRadius(10)
-                }
-            }
-            .disabled(viewModel.isLoading)
-            .animation(.easeInOut, value: viewModel.isLoading)
+            CustomButton(isLoading: $viewModel.isLoading, title: "Sign Up", color: .green, completion: { viewModel.signUp() })
+                .disabled(viewModel.isLoading)
+                .animation(.easeInOut, value: viewModel.isLoading)
         }
         .padding()
         .alert(item: $viewModel.error) { error in
