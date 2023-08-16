@@ -18,6 +18,9 @@ struct SettingsView: View {
             })
         }
         .padding()
+        .alert(item: $viewModel.error) { error in
+            Alert(title: Text(error.title), message: Text(error.message))
+        }
     }
 }
 

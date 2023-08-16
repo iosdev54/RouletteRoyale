@@ -24,9 +24,11 @@
 		18BFCD3F2A8CD72500559CA3 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */; };
 		18BFCD432A8CD91A00559CA3 /* AuthenticationControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */; };
 		18BFCD452A8CD94C00559CA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD442A8CD94C00559CA3 /* ContentView.swift */; };
+		18C222182A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C222172A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift */; };
 		18FF6CDD2A8D070200FEE72C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */; };
 		18FF6CE22A8D10F300FEE72C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF6CE12A8D10F300FEE72C /* CustomButton.swift */; };
 		18FF6CE72A8D152800FEE72C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF6CE62A8D152800FEE72C /* SettingsViewModel.swift */; };
+		18FF6CE92A8D18EA00FEE72C /* AnonymousRegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF6CE82A8D18EA00FEE72C /* AnonymousRegistrationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,9 +47,11 @@
 		18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationControlView.swift; sourceTree = "<group>"; };
 		18BFCD442A8CD94C00559CA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		18C222172A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousRegistrationViewModel.swift; sourceTree = "<group>"; };
 		18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		18FF6CE12A8D10F300FEE72C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		18FF6CE62A8D152800FEE72C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		18FF6CE82A8D18EA00FEE72C /* AnonymousRegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousRegistrationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +131,7 @@
 				18BFCD3B2A8CCC9D00559CA3 /* Main */,
 				183B5F3A2A8CBEA8000537B7 /* Login */,
 				18FF6CD92A8D06AC00FEE72C /* SignUp */,
+				18C222142A8D1E620030BC6F /* Anonymous */,
 				18FF6CE02A8D10A900FEE72C /* Settings */,
 			);
 			path = RouletteRoyaleBuilder;
@@ -196,6 +201,31 @@
 				18FF6CE12A8D10F300FEE72C /* CustomButton.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		18C222142A8D1E620030BC6F /* Anonymous */ = {
+			isa = PBXGroup;
+			children = (
+				18C222162A8D1E850030BC6F /* View */,
+				18C222152A8D1E7A0030BC6F /* ViewModel */,
+			);
+			path = Anonymous;
+			sourceTree = "<group>";
+		};
+		18C222152A8D1E7A0030BC6F /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18C222172A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18C222162A8D1E850030BC6F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18FF6CE82A8D18EA00FEE72C /* AnonymousRegistrationView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		18FF6CD92A8D06AC00FEE72C /* SignUp */ = {
@@ -331,8 +361,10 @@
 				183B5F3C2A8CBF04000537B7 /* LoginView.swift in Sources */,
 				185C537B2A8CE8A9005A1F70 /* SettingsView.swift in Sources */,
 				18BFCD432A8CD91A00559CA3 /* AuthenticationControlView.swift in Sources */,
+				18C222182A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift in Sources */,
 				181BC0FB2A8D036F001253ED /* InputError.swift in Sources */,
 				18BFCD452A8CD94C00559CA3 /* ContentView.swift in Sources */,
+				18FF6CE92A8D18EA00FEE72C /* AnonymousRegistrationView.swift in Sources */,
 				18BFCD3A2A8CC91900559CA3 /* FirebaseService.swift in Sources */,
 				1893DCFE2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift in Sources */,
 				18BFCD3F2A8CD72500559CA3 /* TabBarView.swift in Sources */,

@@ -33,7 +33,6 @@ struct SignUpView: View {
                 SecureField("Password", text: $viewModel.password)
                     .textFieldStyle(.roundedBorder)
             }
-            .padding(.horizontal)
             
             CustomButton(isLoading: $viewModel.isLoading, title: "Sign Up", color: .green, completion: { viewModel.signUp() })
                 .disabled(viewModel.isLoading)

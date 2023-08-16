@@ -24,7 +24,7 @@ final class LoginViewModel: ObservableObject {
         isLoading = true
         
         FirebaseService.shared.signInWithEmail(email: email, password: password) { [weak self] result in
-            guard let self = self else { return }
+            guard let `self` = self else { return }
             DispatchQueue.main.async {
                 self.isLoading = false
                 

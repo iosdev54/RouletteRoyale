@@ -21,6 +21,11 @@ struct AuthenticationControlView: View {
                 .tabItem {
                     Label("Sign Up", systemImage: "person.crop.circle.badge.plus")
                 }
+            
+            AnonymousRegistrationView { isLoggedIn = true }
+            .tabItem {
+                Label("Anonymous", systemImage: "person.fill.questionmark")
+            }
         }
     }
 }

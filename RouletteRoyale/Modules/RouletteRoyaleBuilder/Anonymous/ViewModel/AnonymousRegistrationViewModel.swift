@@ -1,5 +1,5 @@
 //
-//  SignUpViewModel.swift
+//  AnonymousRegistrationViewModel.swift
 //  RouletteRoyale
 //
 //  Created by Dmytro Grytsenko on 16.08.2023.
@@ -7,11 +7,7 @@
 
 import Foundation
 
-final class SignUpViewModel: ObservableObject {
-    @Published var email = ""
-    @Published var password = ""
-    @Published var name = ""
-    
+class AnonymousRegistrationViewModel: ObservableObject {
     @Published var isLoading = false
     @Published var error: InputError?
     
@@ -21,21 +17,22 @@ final class SignUpViewModel: ObservableObject {
         self.onSuccess = onSuccess
     }
     
-    func signUp() {
+    func registerAnonymously() {
         isLoading = true
         
-        FirebaseService.shared.signUpWithEmail(email: email, password: password, name: name) { [weak self] result in
+        FirebaseService.shared.registerAnonymously { [weak self] result in
             guard let `self` = self else { return }
+            
             DispatchQueue.main.async {
                 self.isLoading = false
                 
                 switch result {
                 case .success:
                     self.onSuccess()
-                    print("DEBUG: User successfully registered")
-                case .failure(let signUpError):
-                    self.error = InputError(message: signUpError.localizedDescription)
-                    print("DEBUG: Error signing up: \(signUpError.localizedDescription)")
+                    print("DEBUG: User registered anonymously")
+                case .failure(let registerAnonymouslyError):
+                    self.error = InputError(message: registerAnonymouslyError.localizedDescription)
+                    print("DEBUG: Error registering anonymously: \(registerAnonymouslyError.localizedDescription)")
                 }
             }
         }

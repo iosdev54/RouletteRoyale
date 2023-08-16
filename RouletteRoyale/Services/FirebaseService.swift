@@ -49,12 +49,22 @@ class FirebaseService {
         }
     }
     
-    func signOut(completion: () -> Void) {
+    func registerAnonymously(completion: @escaping (Result<Void, Error>) -> Void) {
+        Auth.auth().signInAnonymously { authResult, error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
+    
+    func signOut(completion: @escaping (Result<Void, Error>) -> Void) {
         do {
             try Auth.auth().signOut()
-            completion()
-        } catch {
-            print("DEBUG: Error signing out")
+            completion(.success(()))
+        } catch let error {
+            completion(.failure(error))
         }
     }
 }
