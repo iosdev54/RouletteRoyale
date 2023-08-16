@@ -7,29 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		181BC0F82A8CF75D001253ED /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BC0F72A8CF75D001253ED /* LoginViewModel.swift */; };
+		181BC0FB2A8D036F001253ED /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BC0FA2A8D036F001253ED /* InputError.swift */; };
 		183B5F3C2A8CBF04000537B7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B5F3B2A8CBF04000537B7 /* LoginView.swift */; };
 		183B5F3E2A8CBF4E000537B7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B5F3D2A8CBF4E000537B7 /* SignUpView.swift */; };
 		183B5F402A8CC4D0000537B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183B5F3F2A8CC4D0000537B7 /* GoogleService-Info.plist */; };
 		183B5F432A8CC609000537B7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 183B5F422A8CC609000537B7 /* FirebaseAuth */; };
 		183B5F452A8CC609000537B7 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 183B5F442A8CC609000537B7 /* FirebaseDatabase */; };
 		183B5F482A8CC66B000537B7 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 183B5F472A8CC66B000537B7 /* FirebaseAnalytics */; };
+		185C537B2A8CE8A9005A1F70 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C537A2A8CE8A9005A1F70 /* SettingsView.swift */; };
 		1893DCFE2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1893DCFD2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift */; };
-		1893DD002A8CBA4F001F7EBC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1893DCFF2A8CBA4F001F7EBC /* ContentView.swift */; };
 		1893DD022A8CBA53001F7EBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1893DD012A8CBA53001F7EBC /* Assets.xcassets */; };
 		1893DD052A8CBA53001F7EBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1893DD042A8CBA53001F7EBC /* Preview Assets.xcassets */; };
 		1893DD0C2A8CBA71001F7EBC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1893DD0B2A8CBA71001F7EBC /* .gitignore */; };
+		18BFCD3A2A8CC91900559CA3 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD392A8CC91900559CA3 /* FirebaseService.swift */; };
+		18BFCD3F2A8CD72500559CA3 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */; };
+		18BFCD432A8CD91A00559CA3 /* AuthenticationControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */; };
+		18BFCD452A8CD94C00559CA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD442A8CD94C00559CA3 /* ContentView.swift */; };
+		18FF6CDD2A8D070200FEE72C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		181BC0F72A8CF75D001253ED /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		181BC0FA2A8D036F001253ED /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
 		183B5F3B2A8CBF04000537B7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		183B5F3D2A8CBF4E000537B7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		183B5F3F2A8CC4D0000537B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		185C537A2A8CE8A9005A1F70 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		1893DCFA2A8CBA4F001F7EBC /* RouletteRoyale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouletteRoyale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1893DCFD2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouletteRoyaleApp.swift; sourceTree = "<group>"; };
-		1893DCFF2A8CBA4F001F7EBC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1893DD012A8CBA53001F7EBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1893DD042A8CBA53001F7EBC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1893DD0B2A8CBA71001F7EBC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		18BFCD392A8CC91900559CA3 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
+		18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationControlView.swift; sourceTree = "<group>"; };
+		18BFCD442A8CD94C00559CA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +60,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		181BC0F52A8CF72D001253ED /* View */ = {
+			isa = PBXGroup;
+			children = (
+				183B5F3B2A8CBF04000537B7 /* LoginView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		181BC0F62A8CF73B001253ED /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				181BC0F72A8CF75D001253ED /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		181BC0F92A8D0321001253ED /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				181BC0FA2A8D036F001253ED /* InputError.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		183B5F352A8CBE03000537B7 /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -66,6 +104,7 @@
 		183B5F372A8CBE10000537B7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				18BFCD392A8CC91900559CA3 /* FirebaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -81,7 +120,9 @@
 		183B5F392A8CBE99000537B7 /* RouletteRoyaleBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				18BFCD3B2A8CCC9D00559CA3 /* Main */,
 				183B5F3A2A8CBEA8000537B7 /* Login */,
+				18FF6CD92A8D06AC00FEE72C /* SignUp */,
 			);
 			path = RouletteRoyaleBuilder;
 			sourceTree = "<group>";
@@ -89,8 +130,9 @@
 		183B5F3A2A8CBEA8000537B7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				183B5F3B2A8CBF04000537B7 /* LoginView.swift */,
-				183B5F3D2A8CBF4E000537B7 /* SignUpView.swift */,
+				181BC0F92A8D0321001253ED /* Model */,
+				181BC0F52A8CF72D001253ED /* View */,
+				181BC0F62A8CF73B001253ED /* ViewModel */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -127,7 +169,6 @@
 				183B5F382A8CBE6D000537B7 /* Modules */,
 				183B5F352A8CBE03000537B7 /* Library */,
 				183B5F372A8CBE10000537B7 /* Services */,
-				1893DCFF2A8CBA4F001F7EBC /* ContentView.swift */,
 				1893DD032A8CBA53001F7EBC /* Preview Content */,
 			);
 			path = RouletteRoyale;
@@ -139,6 +180,42 @@
 				1893DD042A8CBA53001F7EBC /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		18BFCD3B2A8CCC9D00559CA3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */,
+				18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */,
+				18BFCD442A8CD94C00559CA3 /* ContentView.swift */,
+				185C537A2A8CE8A9005A1F70 /* SettingsView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		18FF6CD92A8D06AC00FEE72C /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				18FF6CDA2A8D06C200FEE72C /* View */,
+				18FF6CDB2A8D06CA00FEE72C /* ViewModel */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		18FF6CDA2A8D06C200FEE72C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				183B5F3D2A8CBF4E000537B7 /* SignUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18FF6CDB2A8D06CA00FEE72C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,9 +299,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				183B5F3C2A8CBF04000537B7 /* LoginView.swift in Sources */,
-				1893DD002A8CBA4F001F7EBC /* ContentView.swift in Sources */,
+				185C537B2A8CE8A9005A1F70 /* SettingsView.swift in Sources */,
+				18BFCD432A8CD91A00559CA3 /* AuthenticationControlView.swift in Sources */,
+				181BC0FB2A8D036F001253ED /* InputError.swift in Sources */,
+				18BFCD452A8CD94C00559CA3 /* ContentView.swift in Sources */,
+				18BFCD3A2A8CC91900559CA3 /* FirebaseService.swift in Sources */,
 				1893DCFE2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift in Sources */,
+				18BFCD3F2A8CD72500559CA3 /* TabBarView.swift in Sources */,
 				183B5F3E2A8CBF4E000537B7 /* SignUpView.swift in Sources */,
+				18FF6CDD2A8D070200FEE72C /* SignUpViewModel.swift in Sources */,
+				181BC0F82A8CF75D001253ED /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
