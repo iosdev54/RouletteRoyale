@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1808E3332A8D2EE9004B0213 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808E3322A8D2EE9004B0213 /* UserView.swift */; };
 		181BC0F82A8CF75D001253ED /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BC0F72A8CF75D001253ED /* LoginViewModel.swift */; };
 		181BC0FB2A8D036F001253ED /* InputError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181BC0FA2A8D036F001253ED /* InputError.swift */; };
+		181DBCB02A8D48CF00D4CD5A /* FirebaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 181DBCAF2A8D48CF00D4CD5A /* FirebaseError.swift */; };
 		183B5F3C2A8CBF04000537B7 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B5F3B2A8CBF04000537B7 /* LoginView.swift */; };
 		183B5F3E2A8CBF4E000537B7 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183B5F3D2A8CBF4E000537B7 /* SignUpView.swift */; };
 		183B5F402A8CC4D0000537B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 183B5F3F2A8CC4D0000537B7 /* GoogleService-Info.plist */; };
@@ -32,8 +34,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1808E3322A8D2EE9004B0213 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
 		181BC0F72A8CF75D001253ED /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		181BC0FA2A8D036F001253ED /* InputError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputError.swift; sourceTree = "<group>"; };
+		181DBCAF2A8D48CF00D4CD5A /* FirebaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseError.swift; sourceTree = "<group>"; };
 		183B5F3B2A8CBF04000537B7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		183B5F3D2A8CBF4E000537B7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		183B5F3F2A8CC4D0000537B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -68,6 +72,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1808E3312A8D2EC1004B0213 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				18FF6CE12A8D10F300FEE72C /* CustomButton.swift */,
+				1808E3322A8D2EE9004B0213 /* UserView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		181BC0F52A8CF72D001253ED /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +101,14 @@
 			isa = PBXGroup;
 			children = (
 				181BC0FA2A8D036F001253ED /* InputError.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		181DBCAE2A8D48BA00D4CD5A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				181DBCAF2A8D48CF00D4CD5A /* FirebaseError.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -128,6 +149,7 @@
 		183B5F392A8CBE99000537B7 /* RouletteRoyaleBuilder */ = {
 			isa = PBXGroup;
 			children = (
+				1808E3312A8D2EC1004B0213 /* Components */,
 				18BFCD3B2A8CCC9D00559CA3 /* Main */,
 				183B5F3A2A8CBEA8000537B7 /* Login */,
 				18FF6CD92A8D06AC00FEE72C /* SignUp */,
@@ -198,7 +220,6 @@
 				18BFCD442A8CD94C00559CA3 /* ContentView.swift */,
 				18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */,
 				18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */,
-				18FF6CE12A8D10F300FEE72C /* CustomButton.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -256,6 +277,7 @@
 		18FF6CE02A8D10A900FEE72C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				181DBCAE2A8D48BA00D4CD5A /* Model */,
 				18FF6CE42A8D150700FEE72C /* View */,
 				18FF6CE52A8D151100FEE72C /* ViewModel */,
 			);
@@ -361,6 +383,7 @@
 				183B5F3C2A8CBF04000537B7 /* LoginView.swift in Sources */,
 				185C537B2A8CE8A9005A1F70 /* SettingsView.swift in Sources */,
 				18BFCD432A8CD91A00559CA3 /* AuthenticationControlView.swift in Sources */,
+				1808E3332A8D2EE9004B0213 /* UserView.swift in Sources */,
 				18C222182A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift in Sources */,
 				181BC0FB2A8D036F001253ED /* InputError.swift in Sources */,
 				18BFCD452A8CD94C00559CA3 /* ContentView.swift in Sources */,
@@ -372,6 +395,7 @@
 				18FF6CE22A8D10F300FEE72C /* CustomButton.swift in Sources */,
 				183B5F3E2A8CBF4E000537B7 /* SignUpView.swift in Sources */,
 				18FF6CDD2A8D070200FEE72C /* SignUpViewModel.swift in Sources */,
+				181DBCB02A8D48CF00D4CD5A /* FirebaseError.swift in Sources */,
 				181BC0F82A8CF75D001253ED /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,10 +12,31 @@ struct SettingsView: View {
     @Binding var isLoggedIn: Bool
     
     var body: some View {
-        VStack {
-            CustomButton(isLoading: $viewModel.isLoading, title: "Log out", color: .yellow, completion: {
-                viewModel.logOut(onSuccess: {isLoggedIn = false })
+        VStack(spacing: 50) {
+            UserView(name: "Ivan", balance: 2000)
+                .padding(.bottom, 80)
+            
+            CustomButton(isLoading: $viewModel.isLoadingRateApp, title: "Rate app", color: .yellow, completion: {
+                viewModel.rateApp()
             })
+            
+            CustomButton(isLoading: $viewModel.isLoadingShareApp, title: "Share App", color: .yellow, completion: {
+                viewModel.showActivityVC()
+            })
+            
+            CustomButton(isLoading: $viewModel.isLoadingLogOut, title: "Log Out", color: .yellow, completion: {
+                viewModel.logOut(onSuccess: { isLoggedIn = false })
+            })
+            .disabled(viewModel.isLoadingLogOut)
+            .animation(.easeInOut, value: viewModel.isLoadingLogOut)
+            
+            CustomButton(isLoading: $viewModel.isLoadingDeleteAccount, title: "Delete Account", color: .red, completion: {
+                viewModel.deleteAccount(onSuccess: { isLoggedIn = false } )
+            })
+            .disabled(viewModel.isLoadingDeleteAccount)
+            .animation(.easeInOut, value: viewModel.isLoadingDeleteAccount)
+            
+            Spacer()
         }
         .padding()
         .alert(item: $viewModel.error) { error in

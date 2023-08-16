@@ -67,4 +67,19 @@ class FirebaseService {
             completion(.failure(error))
         }
     }
+    
+    func deleteAccount(completion: @escaping (Result<Void, Error>) -> Void) {
+        guard let user = Auth.auth().currentUser else {
+            completion(.failure(FirebaseError.noCurrentUser))
+            return
+        }
+        
+        user.delete { error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
+            }
+        }
+    }
 }
