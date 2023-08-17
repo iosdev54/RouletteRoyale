@@ -9,4 +9,5 @@ import Foundation
 
 enum FirebaseError: Error {
     case noCurrentUser
+    case invalidUserData
 }

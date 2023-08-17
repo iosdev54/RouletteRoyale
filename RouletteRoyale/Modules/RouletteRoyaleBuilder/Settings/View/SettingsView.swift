@@ -13,7 +13,7 @@ struct SettingsView: View {
     
     var body: some View {
         VStack(spacing: 50) {
-            UserView(name: "Ivan", balance: 2000)
+            UserView(name: viewModel.userData?.name ?? "", balance: viewModel.userData?.chips ?? 0000)
                 .padding(.bottom, 80)
             
             CustomButton(isLoading: $viewModel.isLoadingRateApp, title: "Rate app", color: .yellow, completion: {
@@ -42,6 +42,7 @@ struct SettingsView: View {
         .alert(item: $viewModel.error) { error in
             Alert(title: Text(error.title), message: Text(error.message))
         }
+        .onAppear(perform: viewModel.getUserData)
     }
 }
 

@@ -34,6 +34,7 @@ struct CustomButton: View {
                     .cornerRadius(10)
             }
         }
+        .shadow(radius: 3)
     }
 }
 

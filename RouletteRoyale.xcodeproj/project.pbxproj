@@ -27,6 +27,7 @@
 		18BFCD432A8CD91A00559CA3 /* AuthenticationControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */; };
 		18BFCD452A8CD94C00559CA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD442A8CD94C00559CA3 /* ContentView.swift */; };
 		18C222182A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C222172A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift */; };
+		18E7F0F72A8E0E260045A37C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E7F0F62A8E0E260045A37C /* UserData.swift */; };
 		18FF6CDD2A8D070200FEE72C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */; };
 		18FF6CE22A8D10F300FEE72C /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF6CE12A8D10F300FEE72C /* CustomButton.swift */; };
 		18FF6CE72A8D152800FEE72C /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF6CE62A8D152800FEE72C /* SettingsViewModel.swift */; };
@@ -52,6 +53,7 @@
 		18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationControlView.swift; sourceTree = "<group>"; };
 		18BFCD442A8CD94C00559CA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		18C222172A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousRegistrationViewModel.swift; sourceTree = "<group>"; };
+		18E7F0F62A8E0E260045A37C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		18FF6CE12A8D10F300FEE72C /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		18FF6CE62A8D152800FEE72C /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				18FF6CD92A8D06AC00FEE72C /* SignUp */,
 				18C222142A8D1E620030BC6F /* Anonymous */,
 				18FF6CE02A8D10A900FEE72C /* Settings */,
+				18E7F0F62A8E0E260045A37C /* UserData.swift */,
 			);
 			path = RouletteRoyaleBuilder;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				1893DCFE2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift in Sources */,
 				18BFCD3F2A8CD72500559CA3 /* TabBarView.swift in Sources */,
 				18FF6CE72A8D152800FEE72C /* SettingsViewModel.swift in Sources */,
+				18E7F0F72A8E0E260045A37C /* UserData.swift in Sources */,
 				18FF6CE22A8D10F300FEE72C /* CustomButton.swift in Sources */,
 				183B5F3E2A8CBF4E000537B7 /* SignUpView.swift in Sources */,
 				18FF6CDD2A8D070200FEE72C /* SignUpViewModel.swift in Sources */,
