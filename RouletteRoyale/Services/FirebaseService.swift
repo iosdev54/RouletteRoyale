@@ -8,7 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseAuth
-import FirebaseDatabase
+//import FirebaseDatabase
 
 class FirebaseService {
     static let shared = FirebaseService()

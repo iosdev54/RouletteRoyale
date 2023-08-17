@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct UserData {
+struct UserData: Equatable {
     let name: String
     let chips: Int
     let winRate: Double
@@ -23,4 +23,10 @@ struct UserData {
         self.chips = chips
         self.winRate = winRate
     }
+    
+    static let mock = UserData(snapshot: [
+        "name": "Roman",
+        "chips": 2000,
+        "winRate": 0.0
+    ])
 }

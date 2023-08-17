@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct UserView: View {
-    let name: String
-    var balance: Int
+    let user: UserData?
     
     var body: some View {
         HStack(spacing: 20) {
             avatarView
             
-            Text(name)
-                .font(.largeTitle)
+            Text(user?.name ?? "Unknown")
+                .minimumScaleFactor(0.7)
+                .font(.title)
                 .foregroundColor(.black)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            Text(String(balance))
+            Text(String(user?.chips ?? 0000))
                 .font(.largeTitle)
                 .foregroundColor(.yellow)
             
@@ -41,7 +41,7 @@ struct UserView: View {
         Circle()
             .fill(.yellow)
             .overlay {
-                Text(String(name.prefix(1)))
+                Text(String(user?.name.prefix(1) ?? "U"))
                     .font(.largeTitle)
                     .fontWeight(.semibold)
                     .foregroundColor(.white)
@@ -51,6 +51,6 @@ struct UserView: View {
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
-        UserView(name: "Ivan", balance: 3400)
+        UserView(user: UserData.mock)
     }
 }

@@ -22,6 +22,7 @@ final class SettingsViewModel: ObservableObject {
         
         FirebaseService.shared.getUserData(userId: userId) { [weak self] result in
             guard let self = self else { return }
+            
             switch result {
             case .success(let userData):
                 self.userData = userData
@@ -39,11 +40,17 @@ final class SettingsViewModel: ObservableObject {
     }
     
     func showActivityVC() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let mainWindow = windowScene.windows.first else {
+            return
+        }
+        
         let activityViewController = UIActivityViewController(
             activityItems: ["RouletteRoyale is an awesome app!"],
             applicationActivities: nil
         )
-        UIApplication.shared.windows.first?.rootViewController?.present(
+        
+        mainWindow.rootViewController?.present(
             activityViewController,
             animated: true,
             completion: nil
@@ -56,6 +63,7 @@ final class SettingsViewModel: ObservableObject {
         FirebaseService.shared.signOut { result in
             DispatchQueue.main.async { [weak self] in
                 guard let `self` = self else { return }
+                
                 self.isLoadingLogOut = false
                 
                 switch result {
