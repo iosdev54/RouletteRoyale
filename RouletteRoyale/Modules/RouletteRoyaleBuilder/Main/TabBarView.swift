@@ -13,13 +13,12 @@ struct TabBarView: View {
     var body: some View {
         TabView {
             Text("Game")
-//            GameView()
+            //            GameView()
                 .tabItem {
                     Label("Game", systemImage: "gamecontroller")
                 }
             
-            Text("Rating")
-//            RatingView()
+            RatingView()
                 .tabItem {
                     Label("Rating", systemImage: "star")
                 }
@@ -35,5 +34,6 @@ struct TabBarView: View {
 struct TabBarView_Previews: PreviewProvider {
     static var previews: some View {
         TabBarView(isLoggedIn: .constant(false))
+            .environmentObject(UserData())
     }
 }

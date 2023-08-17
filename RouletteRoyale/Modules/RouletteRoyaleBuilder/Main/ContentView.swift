@@ -9,11 +9,13 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var isLoggedIn = false
+    @StateObject private var userData = UserData()
     
     var body: some View {
         Group {
             if isLoggedIn {
                 TabBarView(isLoggedIn: $isLoggedIn)
+                    .environmentObject(userData)
             } else {
                 AuthenticationControlView(isLoggedIn: $isLoggedIn)
             }

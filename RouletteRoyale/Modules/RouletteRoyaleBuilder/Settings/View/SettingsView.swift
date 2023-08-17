@@ -10,10 +10,11 @@ import SwiftUI
 struct SettingsView: View {
     @StateObject private var viewModel = SettingsViewModel()
     @Binding var isLoggedIn: Bool
+    @EnvironmentObject var userData: UserData
     
     var body: some View {
         VStack(spacing: 50) {
-            UserView(user: viewModel.userData)
+            UserView(userData: userData)
                 .animation(.easeInOut, value: viewModel.userData)
                 .padding(.bottom, 80)
             
@@ -33,18 +34,24 @@ struct SettingsView: View {
             .disabled(viewModel.isLoadingDeleteAccount)
             .animation(.easeInOut, value: viewModel.isLoadingDeleteAccount)
             
+            Button("Plus") {
+                userData.chips += 100
+                userData.saveToFirebase()
+            }
+            
             Spacer()
         }
         .padding()
         .alert(item: $viewModel.error) { error in
             Alert(title: Text(error.title), message: Text(error.message))
         }
-        .onAppear(perform: viewModel.getUserData)
+        //        .onAppear(perform: viewModel.getUserData)
     }
 }
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView(isLoggedIn: .constant(false))
+            .environmentObject(UserData())
     }
 }
