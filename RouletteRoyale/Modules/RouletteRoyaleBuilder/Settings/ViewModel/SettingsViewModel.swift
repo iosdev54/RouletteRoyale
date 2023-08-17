@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import StoreKit
 
 final class SettingsViewModel: ObservableObject {
     @Published var userData: UserData?
@@ -34,8 +35,8 @@ final class SettingsViewModel: ObservableObject {
     }
     
     func rateApp() {
-        if let url = URL(string: "itms-apps://itunes.apple.com/app/idYOUR_APP_ID") {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {
+            SKStoreReviewController.requestReview(in: scene)
         }
     }
     

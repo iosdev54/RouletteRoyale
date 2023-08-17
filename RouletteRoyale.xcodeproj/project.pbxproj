@@ -78,7 +78,6 @@
 			isa = PBXGroup;
 			children = (
 				18FF6CE12A8D10F300FEE72C /* CustomButton.swift */,
-				1808E3322A8D2EE9004B0213 /* UserView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -107,14 +106,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		181DBCAE2A8D48BA00D4CD5A /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				181DBCAF2A8D48CF00D4CD5A /* FirebaseError.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		183B5F352A8CBE03000537B7 /* Library */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,6 +126,7 @@
 		183B5F372A8CBE10000537B7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				181DBCAF2A8D48CF00D4CD5A /* FirebaseError.swift */,
 				18BFCD392A8CC91900559CA3 /* FirebaseService.swift */,
 			);
 			path = Services;
@@ -280,7 +272,6 @@
 		18FF6CE02A8D10A900FEE72C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				181DBCAE2A8D48BA00D4CD5A /* Model */,
 				18FF6CE42A8D150700FEE72C /* View */,
 				18FF6CE52A8D151100FEE72C /* ViewModel */,
 			);
@@ -291,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				185C537A2A8CE8A9005A1F70 /* SettingsView.swift */,
+				1808E3322A8D2EE9004B0213 /* UserView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
