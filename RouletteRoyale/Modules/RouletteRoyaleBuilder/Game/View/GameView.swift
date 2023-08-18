@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct GameView: View {
+    @StateObject private var viewModel = GameViewModel()
+    
+    
     var body: some View {
-        Text("Hello, World!")
+        VStack {
+            Wheel(wheelAngle: $viewModel.wheelAngle)
+        }
     }
 }
 

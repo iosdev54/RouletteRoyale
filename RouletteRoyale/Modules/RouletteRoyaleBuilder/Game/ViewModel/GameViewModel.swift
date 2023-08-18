@@ -8,7 +8,7 @@
 import Foundation
 
 final class GameViewModel: ObservableObject {
-    
+    @Published var wheelAngle = 0
     
     
 }
