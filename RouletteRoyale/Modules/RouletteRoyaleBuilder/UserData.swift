@@ -6,12 +6,30 @@
 //
 
 import Foundation
+import Firebase
 
-final class UserData: Equatable, Identifiable, ObservableObject {
+final class UserData: Equatable, Comparable, Identifiable, ObservableObject {
     var id = ""
-    var name: String  = ""
+    @Published var name: String  = ""
     @Published var chips: Int = 0
     @Published var winRate: Double = 0.0
+    
+    init() {
+        if let userId = FirebaseService.shared.currentUserId {
+            FirebaseService.shared.observeUserDataChanges(userId: userId) { [weak self] result in
+                guard let `self` = self else { return }
+                
+                DispatchQueue.main.async {
+                    switch result {
+                    case .success(let updatedUserData):
+                        self.update(with: updatedUserData)
+                    case .failure(let error):
+                        print("DEBUG: Error observing user data changes: \(error.localizedDescription)")
+                    }
+                }
+            }
+        }
+    }
     
     init?(snapshot: [String: Any]) {
         guard
@@ -26,18 +44,6 @@ final class UserData: Equatable, Identifiable, ObservableObject {
         self.name = name
         self.chips = chips
         self.winRate = winRate
-    }
-    
-    init() { getUserData() }
-    
-    private func getUserData() {
-        if let userId = FirebaseService.shared.currentUserId {
-            FirebaseService.shared.getUserData(userId: userId) { [weak self] result in
-                if case .success(let userData) = result {
-                    self?.update(with: userData)
-                }
-            }
-        }
     }
     
     private func update(with userData: UserData) {
@@ -67,5 +73,9 @@ final class UserData: Equatable, Identifiable, ObservableObject {
     
     static func == (lhs: UserData, rhs: UserData) -> Bool {
         lhs.id == rhs.id
+    }
+    
+    static func < (lhs: UserData, rhs: UserData) -> Bool {
+        lhs.chips > rhs.chips
     }
 }

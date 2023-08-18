@@ -8,7 +8,22 @@
 import SwiftUI
 
 struct UserView: View {
+    enum BackgroundColor {
+        case white
+        case gray
+        
+        var color: Color {
+            switch self {
+            case .white:
+                return Color.white
+            case .gray:
+                return Color.teal
+            }
+        }
+    }
+    
     @ObservedObject var userData: UserData
+    var background: BackgroundColor = .white
     
     var body: some View {
         HStack(spacing: 20) {
@@ -33,9 +48,9 @@ struct UserView: View {
         .padding()
         .frame(maxWidth: .infinity)
         .frame(height: 80)
-        .background(.white)
+        .background(background.color)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        .shadow(radius: 10)
+        .shadow(radius: 5)
     }
     
     

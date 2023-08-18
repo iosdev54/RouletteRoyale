@@ -8,31 +8,13 @@
 import SwiftUI
 import StoreKit
 
-final class SettingsViewModel: ObservableObject {
-    @Published var userData: UserData?
-    
+final class SettingsViewModel: ObservableObject {    
     @Published var isLoadingRateApp = false
     @Published var isLoadingShareApp = false
     @Published var isLoadingLogOut = false
     @Published var isLoadingDeleteAccount = false
     
     @Published var error: InputError?
-    
-//    func getUserData() {
-//        guard let userId = FirebaseService.shared.currentUserId else { return }
-//
-//        FirebaseService.shared.getUserData(userId: userId) { [weak self] result in
-//            guard let self = self else { return }
-//
-//            switch result {
-//            case .success(let userData):
-//                self.userData = userData
-//            case .failure(let userDataError):
-//                error = InputError(message: userDataError.localizedDescription)
-//                print("DEBUG: Error getting user data: \(userDataError.localizedDescription)")
-//            }
-//        }
-//    }
     
     func rateApp() {
         if let scene = UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene {

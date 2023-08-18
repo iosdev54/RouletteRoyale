@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabBarView: View {
     @Binding var isLoggedIn: Bool
+    @ObservedObject private var userData = UserData()
     
     var body: some View {
         TabView {
@@ -28,6 +29,7 @@ struct TabBarView: View {
                     Label("Settings", systemImage: "gear")
                 }
         }
+        .environmentObject(userData)
     }
 }
 

@@ -168,19 +168,33 @@ class FirebaseService {
         }
     }
     
-//    func observeUserDataChanges(userId: String, completion: @escaping (Result<UserData, Error>) -> Void) {
-//        let userDataRef = databaseRef.child("users").child(userId)
-//
-//        userDataRef.observe(.value) { snapshot in
-//            if let userDataDict = snapshot.value as? [String: Any],
-//               let userData = UserData(snapshot: userDataDict) {
-//                completion(.success(userData))
-//            } else {
-//                completion(.failure(FirebaseError.invalidData))
-//            }
-//        }
-//
-//    }
+    func observeUserDataChanges(userId: String, completion: @escaping (Result<UserData, Error>) -> Void) {
+        let userDataRef = Database.database().reference().child("users").child(userId)
+        userDataRef.observe(.value) { snapshot in
+            if let userDataDict = snapshot.value as? [String: Any],
+               let userData = UserData(snapshot: userDataDict) {
+                completion(.success(userData))
+            } else {
+                completion(.failure(FirebaseError.invalidUserData))
+            }
+        } withCancel: { error in
+            completion(.failure(error))
+        }
+    }
+    
+    //    func observeUserDataChanges(userId: String, completion: @escaping (Result<UserData, Error>) -> Void) {
+    //        let userDataRef = databaseRef.child("users").child(userId)
+    //
+    //        userDataRef.observe(.value) { snapshot in
+    //            if let userDataDict = snapshot.value as? [String: Any],
+    //               let userData = UserData(snapshot: userDataDict) {
+    //                completion(.success(userData))
+    //            } else {
+    //                completion(.failure(FirebaseError.invalidData))
+    //            }
+    //        }
+    //
+    //    }
     
     
     //
@@ -225,15 +239,15 @@ class FirebaseService {
     //    }
     
     
-//        func updateUserChips(userId: String, newChipsAmount: Int, completion: @escaping (Result<Void, Error>) -> Void) {
-//            let userChipsRef = databaseRef.child("users").child(userId).child("chips")
-//
-//            userChipsRef.setValue(newChipsAmount) { error, _ in
-//                if let error = error {
-//                    completion(.failure(error))
-//                } else {
-//                    completion(.success(()))
-//                }
-//            }
-//        }
+    //        func updateUserChips(userId: String, newChipsAmount: Int, completion: @escaping (Result<Void, Error>) -> Void) {
+    //            let userChipsRef = databaseRef.child("users").child(userId).child("chips")
+    //
+    //            userChipsRef.setValue(newChipsAmount) { error, _ in
+    //                if let error = error {
+    //                    completion(.failure(error))
+    //                } else {
+    //                    completion(.success(()))
+    //                }
+    //            }
+    //        }
 }
