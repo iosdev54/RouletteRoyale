@@ -29,6 +29,8 @@
 		18BFCD432A8CD91A00559CA3 /* AuthenticationControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */; };
 		18BFCD452A8CD94C00559CA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD442A8CD94C00559CA3 /* ContentView.swift */; };
 		18C222182A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C222172A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift */; };
+		18CC21932A8F9B2100A41605 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC21922A8F9B2100A41605 /* GameView.swift */; };
+		18CC21952A8F9B2B00A41605 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC21942A8F9B2B00A41605 /* GameViewModel.swift */; };
 		18E7F0F72A8E0E260045A37C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E7F0F62A8E0E260045A37C /* UserData.swift */; };
 		18E82FDC2A8E5EAB0014985D /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E82FDB2A8E5EAB0014985D /* TabBarViewModel.swift */; };
 		18FF6CDD2A8D070200FEE72C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */; };
@@ -58,6 +60,8 @@
 		18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationControlView.swift; sourceTree = "<group>"; };
 		18BFCD442A8CD94C00559CA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		18C222172A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousRegistrationViewModel.swift; sourceTree = "<group>"; };
+		18CC21922A8F9B2100A41605 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		18CC21942A8F9B2B00A41605 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		18E7F0F62A8E0E260045A37C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		18E82FDB2A8E5EAB0014985D /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -176,12 +180,10 @@
 			children = (
 				1808E3312A8D2EC1004B0213 /* Components */,
 				18BFCD3B2A8CCC9D00559CA3 /* Main */,
-				183B5F3A2A8CBEA8000537B7 /* Login */,
-				18FF6CD92A8D06AC00FEE72C /* SignUp */,
-				18C222142A8D1E620030BC6F /* Anonymous */,
-				18FF6CE02A8D10A900FEE72C /* Settings */,
-				18E7F0F62A8E0E260045A37C /* UserData.swift */,
+				18CC21912A8F9B0000A41605 /* Authorization */,
+				18CC218D2A8F9A6100A41605 /* Game */,
 				180421412A8E3E19005F04A4 /* Rating */,
+				18FF6CE02A8D10A900FEE72C /* Settings */,
 			);
 			path = RouletteRoyaleBuilder;
 			sourceTree = "<group>";
@@ -248,6 +250,7 @@
 				18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */,
 				18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */,
 				18E82FDB2A8E5EAB0014985D /* TabBarViewModel.swift */,
+				18E7F0F62A8E0E260045A37C /* UserData.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -275,6 +278,49 @@
 				18FF6CE82A8D18EA00FEE72C /* AnonymousRegistrationView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		18CC218D2A8F9A6100A41605 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				18CC218F2A8F9A6E00A41605 /* Model */,
+				18CC218E2A8F9A6800A41605 /* View */,
+				18CC21902A8F9A7700A41605 /* ViewModel */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		18CC218E2A8F9A6800A41605 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18CC21922A8F9B2100A41605 /* GameView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		18CC218F2A8F9A6E00A41605 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		18CC21902A8F9A7700A41605 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				18CC21942A8F9B2B00A41605 /* GameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		18CC21912A8F9B0000A41605 /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				183B5F3A2A8CBEA8000537B7 /* Login */,
+				18FF6CD92A8D06AC00FEE72C /* SignUp */,
+				18C222142A8D1E620030BC6F /* Anonymous */,
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 		18FF6CD92A8D06AC00FEE72C /* SignUp */ = {
@@ -417,6 +463,7 @@
 				18BFCD452A8CD94C00559CA3 /* ContentView.swift in Sources */,
 				18FF6CE92A8D18EA00FEE72C /* AnonymousRegistrationView.swift in Sources */,
 				18BFCD3A2A8CC91900559CA3 /* FirebaseService.swift in Sources */,
+				18CC21952A8F9B2B00A41605 /* GameViewModel.swift in Sources */,
 				1893DCFE2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift in Sources */,
 				18BFCD3F2A8CD72500559CA3 /* TabBarView.swift in Sources */,
 				18FF6CE72A8D152800FEE72C /* SettingsViewModel.swift in Sources */,
@@ -424,6 +471,7 @@
 				180421472A8E3EE4005F04A4 /* RatingViewModel.swift in Sources */,
 				18FF6CE22A8D10F300FEE72C /* CustomButton.swift in Sources */,
 				183B5F3E2A8CBF4E000537B7 /* SignUpView.swift in Sources */,
+				18CC21932A8F9B2100A41605 /* GameView.swift in Sources */,
 				18FF6CDD2A8D070200FEE72C /* SignUpViewModel.swift in Sources */,
 				181DBCB02A8D48CF00D4CD5A /* FirebaseError.swift in Sources */,
 				180421452A8E3E50005F04A4 /* RatingView.swift in Sources */,
