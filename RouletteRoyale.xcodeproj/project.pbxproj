@@ -27,12 +27,14 @@
 		18BFCD3A2A8CC91900559CA3 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD392A8CC91900559CA3 /* FirebaseService.swift */; };
 		18BFCD3F2A8CD72500559CA3 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */; };
 		18BFCD432A8CD91A00559CA3 /* AuthenticationControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */; };
-		18BFCD452A8CD94C00559CA3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD442A8CD94C00559CA3 /* ContentView.swift */; };
+		18BFCD452A8CD94C00559CA3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD442A8CD94C00559CA3 /* MainView.swift */; };
 		18C222182A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C222172A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift */; };
 		18CC21932A8F9B2100A41605 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC21922A8F9B2100A41605 /* GameView.swift */; };
 		18CC21952A8F9B2B00A41605 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC21942A8F9B2B00A41605 /* GameViewModel.swift */; };
 		18CC21972A8FA05C00A41605 /* Wheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC21962A8FA05C00A41605 /* Wheel.swift */; };
 		18CC21992A8FA58000A41605 /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC21982A8FA58000A41605 /* Arrow.swift */; };
+		18CC219D2A8FAF7300A41605 /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC219C2A8FAF7300A41605 /* TableView.swift */; };
+		18CC21A12A8FAFBE00A41605 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CC21A02A8FAFBE00A41605 /* TextView.swift */; };
 		18E7F0F72A8E0E260045A37C /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E7F0F62A8E0E260045A37C /* UserData.swift */; };
 		18E82FDC2A8E5EAB0014985D /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E82FDB2A8E5EAB0014985D /* TabBarViewModel.swift */; };
 		18FF6CDD2A8D070200FEE72C /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */; };
@@ -60,12 +62,14 @@
 		18BFCD392A8CC91900559CA3 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationControlView.swift; sourceTree = "<group>"; };
-		18BFCD442A8CD94C00559CA3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		18BFCD442A8CD94C00559CA3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		18C222172A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnonymousRegistrationViewModel.swift; sourceTree = "<group>"; };
 		18CC21922A8F9B2100A41605 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		18CC21942A8F9B2B00A41605 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		18CC21962A8FA05C00A41605 /* Wheel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wheel.swift; sourceTree = "<group>"; };
 		18CC21982A8FA58000A41605 /* Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
+		18CC219C2A8FAF7300A41605 /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		18CC21A02A8FAFBE00A41605 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		18E7F0F62A8E0E260045A37C /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		18E82FDB2A8E5EAB0014985D /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		18FF6CDC2A8D070200FEE72C /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
@@ -137,21 +141,6 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		181BC0F92A8D0321001253ED /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				181BC0FA2A8D036F001253ED /* InputError.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		183B5F352A8CBE03000537B7 /* Library */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Library;
-			sourceTree = "<group>";
-		};
 		183B5F362A8CBE0B000537B7 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,24 +154,22 @@
 		183B5F372A8CBE10000537B7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				181DBCAF2A8D48CF00D4CD5A /* FirebaseError.swift */,
 				18BFCD392A8CC91900559CA3 /* FirebaseService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
-		183B5F382A8CBE6D000537B7 /* Modules */ = {
+		183B5F382A8CBE6D000537B7 /* UsersStories */ = {
 			isa = PBXGroup;
 			children = (
 				183B5F392A8CBE99000537B7 /* RouletteRoyaleBuilder */,
 			);
-			path = Modules;
+			path = UsersStories;
 			sourceTree = "<group>";
 		};
 		183B5F392A8CBE99000537B7 /* RouletteRoyaleBuilder */ = {
 			isa = PBXGroup;
 			children = (
-				1808E3312A8D2EC1004B0213 /* Components */,
 				18BFCD3B2A8CCC9D00559CA3 /* Main */,
 				18CC21912A8F9B0000A41605 /* Authorization */,
 				18CC218D2A8F9A6100A41605 /* Game */,
@@ -195,7 +182,6 @@
 		183B5F3A2A8CBEA8000537B7 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				181BC0F92A8D0321001253ED /* Model */,
 				181BC0F52A8CF72D001253ED /* View */,
 				181BC0F62A8CF73B001253ED /* ViewModel */,
 			);
@@ -207,6 +193,25 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		185E5D022A8FF94600B85927 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				185E5D032A8FF94D00B85927 /* Models */,
+				1808E3312A8D2EC1004B0213 /* Components */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		185E5D032A8FF94D00B85927 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				18E7F0F62A8E0E260045A37C /* UserData.swift */,
+				181BC0FA2A8D036F001253ED /* InputError.swift */,
+				181DBCAF2A8D48CF00D4CD5A /* FirebaseError.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		1893DCF12A8CBA4F001F7EBC = {
@@ -231,9 +236,9 @@
 			isa = PBXGroup;
 			children = (
 				183B5F362A8CBE0B000537B7 /* Main */,
-				183B5F382A8CBE6D000537B7 /* Modules */,
-				183B5F352A8CBE03000537B7 /* Library */,
 				183B5F372A8CBE10000537B7 /* Services */,
+				185E5D022A8FF94600B85927 /* Library */,
+				183B5F382A8CBE6D000537B7 /* UsersStories */,
 				1893DD032A8CBA53001F7EBC /* Preview Content */,
 			);
 			path = RouletteRoyale;
@@ -250,11 +255,10 @@
 		18BFCD3B2A8CCC9D00559CA3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				18BFCD442A8CD94C00559CA3 /* ContentView.swift */,
+				18BFCD442A8CD94C00559CA3 /* MainView.swift */,
 				18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */,
 				18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */,
 				18E82FDB2A8E5EAB0014985D /* TabBarViewModel.swift */,
-				18E7F0F62A8E0E260045A37C /* UserData.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -300,6 +304,8 @@
 				18CC21922A8F9B2100A41605 /* GameView.swift */,
 				18CC21962A8FA05C00A41605 /* Wheel.swift */,
 				18CC21982A8FA58000A41605 /* Arrow.swift */,
+				18CC219C2A8FAF7300A41605 /* TableView.swift */,
+				18CC21A02A8FAFBE00A41605 /* TextView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -467,7 +473,7 @@
 				1808E3332A8D2EE9004B0213 /* UserView.swift in Sources */,
 				18C222182A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift in Sources */,
 				181BC0FB2A8D036F001253ED /* InputError.swift in Sources */,
-				18BFCD452A8CD94C00559CA3 /* ContentView.swift in Sources */,
+				18BFCD452A8CD94C00559CA3 /* MainView.swift in Sources */,
 				18FF6CE92A8D18EA00FEE72C /* AnonymousRegistrationView.swift in Sources */,
 				18BFCD3A2A8CC91900559CA3 /* FirebaseService.swift in Sources */,
 				18CC21952A8F9B2B00A41605 /* GameViewModel.swift in Sources */,
@@ -481,8 +487,10 @@
 				18CC21992A8FA58000A41605 /* Arrow.swift in Sources */,
 				18CC21932A8F9B2100A41605 /* GameView.swift in Sources */,
 				18FF6CDD2A8D070200FEE72C /* SignUpViewModel.swift in Sources */,
+				18CC219D2A8FAF7300A41605 /* TableView.swift in Sources */,
 				181DBCB02A8D48CF00D4CD5A /* FirebaseError.swift in Sources */,
 				180421452A8E3E50005F04A4 /* RatingView.swift in Sources */,
+				18CC21A12A8FAFBE00A41605 /* TextView.swift in Sources */,
 				18E82FDC2A8E5EAB0014985D /* TabBarViewModel.swift in Sources */,
 				181BC0F82A8CF75D001253ED /* LoginViewModel.swift in Sources */,
 			);

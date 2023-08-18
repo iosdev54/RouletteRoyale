@@ -11,6 +11,12 @@ struct RatingView: View {
     @StateObject private var viewModel = RatingViewModel()
     @EnvironmentObject var userData: UserData
     
+    private var filteredUsers: [UserData] {
+        viewModel.users
+            .filter { $0.id != userData.id }
+            .sorted()
+    }
+    
     var body: some View {
         VStack {
             UserView(userData: userData, background: .gray)
@@ -31,12 +37,6 @@ struct RatingView: View {
         .alert(item: $viewModel.error) { error in
             Alert(title: Text(error.title), message: Text(error.message))
         }
-    }
-    
-    private var filteredUsers: [UserData] {
-        viewModel.users
-            .filter { $0.id != userData.id }
-            .sorted()
     }
 }
 

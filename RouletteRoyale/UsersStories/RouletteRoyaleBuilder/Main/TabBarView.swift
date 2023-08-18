@@ -13,8 +13,7 @@ struct TabBarView: View {
     
     var body: some View {
         TabView {
-            Text("Game")
-            //            GameView()
+            GameView()
                 .tabItem {
                     Label("Game", systemImage: "gamecontroller")
                 }

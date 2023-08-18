@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MainView.swift
 //  RouletteRoyale
 //
 //  Created by Dmytro Grytsenko on 16.08.2023.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     @State private var isLoggedIn = false
     
     var body: some View {
@@ -31,6 +31,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MainView()
     }
 }
