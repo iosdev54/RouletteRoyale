@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1802E4732A90F9430029AE60 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802E4722A90F9420029AE60 /* ResultView.swift */; };
 		180421452A8E3E50005F04A4 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180421442A8E3E50005F04A4 /* RatingView.swift */; };
 		180421472A8E3EE4005F04A4 /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180421462A8E3EE4005F04A4 /* RatingViewModel.swift */; };
 		1808E3332A8D2EE9004B0213 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808E3322A8D2EE9004B0213 /* UserView.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1802E4722A90F9420029AE60 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		180421442A8E3E50005F04A4 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		180421462A8E3EE4005F04A4 /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
 		1808E3322A8D2EE9004B0213 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				18CC21982A8FA58000A41605 /* Arrow.swift */,
 				18CC219C2A8FAF7300A41605 /* TableView.swift */,
 				18CC21A02A8FAFBE00A41605 /* TextView.swift */,
+				1802E4722A90F9420029AE60 /* ResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				18FF6CE92A8D18EA00FEE72C /* AnonymousRegistrationView.swift in Sources */,
 				18BFCD3A2A8CC91900559CA3 /* FirebaseService.swift in Sources */,
 				18CC21952A8F9B2B00A41605 /* GameViewModel.swift in Sources */,
+				1802E4732A90F9430029AE60 /* ResultView.swift in Sources */,
 				1893DCFE2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift in Sources */,
 				18BFCD3F2A8CD72500559CA3 /* TabBarView.swift in Sources */,
 				18FF6CE72A8D152800FEE72C /* SettingsViewModel.swift in Sources */,

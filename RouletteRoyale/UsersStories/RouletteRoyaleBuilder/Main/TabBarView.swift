@@ -9,11 +9,11 @@ import SwiftUI
 
 struct TabBarView: View {
     @Binding var isLoggedIn: Bool
-    @ObservedObject private var userData = UserData()
+    @StateObject private var userData = UserData()
     
     var body: some View {
         TabView {
-            GameView()
+            GameView(viewModel: GameViewModel(userData: userData))
                 .tabItem {
                     Label("Game", systemImage: "gamecontroller")
                 }
