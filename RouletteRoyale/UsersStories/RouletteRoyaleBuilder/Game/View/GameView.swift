@@ -37,9 +37,9 @@ struct GameView: View {
                     }
                     .padding()
                     .padding(.horizontal)
-                    .background(viewModel.betType == .none ? .gray : .red)
+                    .background(viewModel.betType == .none || viewModel.isSpinning ? .gray : .red)
                     .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .disabled(viewModel.betType == .none ? true : false)
+                    .disabled(viewModel.betType == .none || viewModel.isSpinning ? true : false)
                 }
             }
             .padding(.horizontal)

@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct BetResult {
-    let win: Bool
-    let amount: Int
-}
-
 final class GameViewModel: ObservableObject {
     @Published var userData: UserData
     @Published var betType: BetType = .none
@@ -19,6 +14,7 @@ final class GameViewModel: ObservableObject {
     @Published var bet = 10
     
     @Published var feedback: BetResult?
+    @Published var isSpinning = false
     
     var betAmount: Int {
         userData.chips / bet
@@ -29,8 +25,9 @@ final class GameViewModel: ObservableObject {
     }
     
     func startGame() {
+        isSpinning = true
         number = Int.random(in: 0...36)
-        //        print(number)
+        debugPrint(number)
     }
     
     func checkBet(betType: BetType, winningNumber: Int, betAmount: Int) {
@@ -50,7 +47,7 @@ final class GameViewModel: ObservableObject {
             
         case .column(let column):
             let numbersInColumns = [[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36],
-                                   [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35],
+                                    [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35],
                                     [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34]]
             
             switch column {
@@ -105,10 +102,10 @@ final class GameViewModel: ObservableObject {
                 let resultAmount = betAmount * 3
                 userData.chips += resultAmount
                 feedback = BetResult(win: true, amount: resultAmount)
-               } else {
-                   userData.chips -= betAmount
-                   feedback = BetResult(win: false, amount: betAmount)
-               }
+            } else {
+                userData.chips -= betAmount
+                feedback = BetResult(win: false, amount: betAmount)
+            }
             userData.saveToFirebase()
             
         case .lowHigh(let high):
@@ -118,36 +115,37 @@ final class GameViewModel: ObservableObject {
                 let resultAmount = betAmount * 2
                 userData.chips += resultAmount
                 feedback = BetResult(win: true, amount: resultAmount)
-                    } else {
-                        userData.chips -= betAmount
-                        feedback = BetResult(win: false, amount: betAmount)
-                    }
+            } else {
+                userData.chips -= betAmount
+                feedback = BetResult(win: false, amount: betAmount)
+            }
             userData.saveToFirebase()
             
         case .redBlack(let color):
             
             let winningColor: BetType.ColorType = winningNumber % 2 == 0 ? .black : .red
-                    if color == winningColor {
-                        let resultAmount = betAmount * 2
-                        userData.chips += resultAmount
-                        feedback = BetResult(win: true, amount: resultAmount)
-                    } else {
-                        userData.chips -= betAmount
-                        feedback = BetResult(win: false, amount: betAmount)
-                    }
-                userData.saveToFirebase()
+            if color == winningColor {
+                let resultAmount = betAmount * 2
+                userData.chips += resultAmount
+                feedback = BetResult(win: true, amount: resultAmount)
+            } else {
+                userData.chips -= betAmount
+                feedback = BetResult(win: false, amount: betAmount)
+            }
+            userData.saveToFirebase()
             
         case .oddEven(let odd):
             let winningParity = winningNumber % 2 == 0 ? false : true
-                    if odd == winningParity {
-                        let resultAmount = betAmount * 2
-                        userData.chips += resultAmount
-                        feedback = BetResult(win: true, amount: resultAmount)
-                    } else {
-                        userData.chips -= betAmount
-                        feedback = BetResult(win: false, amount: betAmount)
-                    }
+            if odd == winningParity {
+                let resultAmount = betAmount * 2
+                userData.chips += resultAmount
+                feedback = BetResult(win: true, amount: resultAmount)
+            } else {
+                userData.chips -= betAmount
+                feedback = BetResult(win: false, amount: betAmount)
+            }
             userData.saveToFirebase()
         }
+        isSpinning = false
     }
 }

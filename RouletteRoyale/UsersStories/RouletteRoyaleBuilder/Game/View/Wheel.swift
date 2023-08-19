@@ -23,7 +23,7 @@ struct Wheel: View {
                 .resizable()
                 .scaledToFit()
                 .frame(minWidth: 100, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
-                .rotationEffect(.degrees(Double(angle + 17)), anchor: .center)
+                .rotationEffect(.degrees(Double(angle + 3)), anchor: .center)
                 .animation(.easeInOut(duration: isSpinning ? 3 : 0))
             
             Arrow()

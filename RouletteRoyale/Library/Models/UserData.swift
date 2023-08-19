@@ -11,7 +11,14 @@ import Firebase
 final class UserData: Equatable, Comparable, Identifiable, ObservableObject {
     var id = ""
     @Published var name: String  = ""
-    @Published var chips: Int = 0
+    @Published var chips: Int = 0 {
+        didSet {
+            if chips < 100 {
+                chips += 100
+                saveToFirebase()
+            }
+        }
+    }
     @Published var winRate: Double = 0.0
     
     init() {

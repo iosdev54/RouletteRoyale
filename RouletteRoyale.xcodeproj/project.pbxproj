@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1802E4732A90F9430029AE60 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802E4722A90F9420029AE60 /* ResultView.swift */; };
+		1802E4762A91428A0029AE60 /* BetResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1802E4752A91428A0029AE60 /* BetResult.swift */; };
 		180421452A8E3E50005F04A4 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180421442A8E3E50005F04A4 /* RatingView.swift */; };
 		180421472A8E3EE4005F04A4 /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180421462A8E3EE4005F04A4 /* RatingViewModel.swift */; };
 		1808E3332A8D2EE9004B0213 /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808E3322A8D2EE9004B0213 /* UserView.swift */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		1802E4722A90F9420029AE60 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		1802E4752A91428A0029AE60 /* BetResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetResult.swift; sourceTree = "<group>"; };
 		180421442A8E3E50005F04A4 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		180421462A8E3EE4005F04A4 /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
 		1808E3322A8D2EE9004B0213 /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 		18CC218F2A8F9A6E00A41605 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1802E4752A91428A0029AE60 /* BetResult.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				18FF6CE72A8D152800FEE72C /* SettingsViewModel.swift in Sources */,
 				18E7F0F72A8E0E260045A37C /* UserData.swift in Sources */,
 				180421472A8E3EE4005F04A4 /* RatingViewModel.swift in Sources */,
+				1802E4762A91428A0029AE60 /* BetResult.swift in Sources */,
 				18FF6CE22A8D10F300FEE72C /* CustomButton.swift in Sources */,
 				183B5F3E2A8CBF4E000537B7 /* SignUpView.swift in Sources */,
 				18CC21992A8FA58000A41605 /* Arrow.swift in Sources */,
