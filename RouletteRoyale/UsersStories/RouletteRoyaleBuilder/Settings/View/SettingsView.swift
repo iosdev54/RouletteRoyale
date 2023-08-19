@@ -16,7 +16,7 @@ struct SettingsView: View {
         GeometryReader { geometry in
             VStack {
                 UserView(userData: userData)
-                    .animation(.easeInOut(duration: 2), value: userData)
+                    .animation(.easeInOut, value: userData)
                     .padding()
                     .padding(.bottom, geometry.size.width > geometry.size.height ? 0 : 30)
                 

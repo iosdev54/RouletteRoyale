@@ -19,7 +19,7 @@ struct RatingView: View {
     
     var body: some View {
         VStack {
-            UserView(userData: userData, background: .gray)
+            UserView(userData: userData, background: .teal)
                 .animation(.easeInOut, value: userData)
                 .padding()
             

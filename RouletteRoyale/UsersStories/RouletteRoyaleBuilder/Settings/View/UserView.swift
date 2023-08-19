@@ -10,13 +10,13 @@ import SwiftUI
 struct UserView: View {
     enum BackgroundColor {
         case white
-        case gray
+        case teal
         
         var color: Color {
             switch self {
             case .white:
                 return Color.white
-            case .gray:
+            case .teal:
                 return Color.teal
             }
         }
