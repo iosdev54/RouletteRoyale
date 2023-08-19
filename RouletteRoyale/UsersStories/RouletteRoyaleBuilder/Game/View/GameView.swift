@@ -12,7 +12,8 @@ struct GameView: View {
     @EnvironmentObject var userData: UserData
     @Environment(\.horizontalSizeClass) var sizeClass
     
-    @State private var num = -1
+    @State private var betType: BetType = .none
+    @State private var number: Int? = nil
     
     var body: some View {
         GeometryReader { proxy in
@@ -21,11 +22,13 @@ struct GameView: View {
                     .frame(width: proxy.size.width * 0.6)
                 
                 
-                Button("RUN") {
+                Button("Start") {
                     viewModel.wheelAngle += Int.random(in: 1080...1440)
                 }
+                .buttonStyle(.borderedProminent)
+                .tint(.purple)
                 
-                TableView(num: $num, width: proxy.size.width * 0.95, height: 240)
+                TableView(betType: $betType, width: proxy.size.width * 0.95, height: 250)
                 
                 Spacer()
             }

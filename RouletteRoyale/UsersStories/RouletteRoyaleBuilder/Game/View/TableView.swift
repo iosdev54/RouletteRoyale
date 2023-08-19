@@ -8,21 +8,8 @@
 import SwiftUI
 
 struct TableView: View {
-    private let TwoToOne = [[3,6,9,12,15,18,21,24,27,30,33,36],
-                            [2,5,8,11,14,17,20,23,26,29,32,35],
-                            [1,4,7,10,13,16,19,22,25,28,31,34]]
-    private let StNdRd = [[ 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12],
-                          [13,14,15,16,17,18,19,20,21,22,23,24],
-                          [25,26,27,28,29,30,31,32,33,34,35,36]]
-    private let ThirtySix = [[ 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12,13,14,15,16,17,18],
-                             [19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36]]
-    private let Even = [1,3,5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35]
-    private let Odd = [2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34,36]
-    private let redBlock = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36]
-    private let blackBlock = [2,4,6,8,10,11,13,15,17,20,22,24,26,28,29,31,33,35]
-    
-    @Binding var num : Int
-    @State var selectedField = ""
+    @Binding var betType: BetType
+    @State private var selectedBet: BetType = .none
     
     let width: CGFloat
     let height: CGFloat
@@ -30,8 +17,10 @@ struct TableView: View {
     private let rowCellWidth: CGFloat
     private let rowCellHeight: CGFloat
     
-    init(num: Binding<Int>, width: CGFloat, height: CGFloat) {
-        self._num = num
+    private let redBlock = [1,3,5,7,9,12,14,16,18,19,21,23,25,27,30,32,34,36]
+    
+    init(betType: Binding<BetType>, width: CGFloat, height: CGFloat) {
+        self._betType = betType
         self.width = width
         self.height = height
         
@@ -39,68 +28,131 @@ struct TableView: View {
         self.rowCellHeight = height / 5
     }
     
+    private func placeBet(bet: BetType) {
+        selectedBet = (selectedBet == bet) ? .none : bet
+    }
+    
     var body: some View {
         ZStack {
             VStack(spacing: 0) {
                 HStack(spacing: 0) {
-                    TextView(mode: 1, text: "0", width: rowCellWidth, height: height * 0.6)
-                        .background(num == 0 ? .yellow : .green)
+                    TextView(tableType: .type1, text: "0", width: rowCellWidth, height: rowCellHeight * 3)
+                        .background((selectedBet == .straight(number: 0) ? .yellow : .green))
                         .onTapGesture {
-                            
+                            placeBet(bet: .straight(number: 0))
                         }
+                    
                     
                     VStack(spacing: 0) {
                         ForEach((0...2), id: \.self) { i in
                             HStack(spacing: 0) {
                                 ForEach((1...12), id: \.self) { j in
-                                    TextView(mode: 2, text: "\(j * 3 - i)", width: rowCellWidth, height: rowCellHeight)
-                                    
-                                        .background(num == j * 3 - i ? .yellow : redBlock.contains(j * 3 - i) ? .red : .black)
+                                    let number = j * 3 - i
+                                    TextView(tableType: .type2, text: "\(number)", width: rowCellWidth, height: rowCellHeight)
+                                        .background(selectedBet == .straight(number: number) ? .yellow : redBlock.contains(number) ? .red : .black)
+                                        .onTapGesture {
+                                            placeBet(bet: .straight(number: number))
+                                        }
                                 }
                             }
                         }
                     }
                     
                     VStack(spacing: 0) {
-                        ForEach((0...2), id: \.self) { i in
-                            TextView(mode: 3, text: "2to1", width: rowCellWidth, height: rowCellHeight)
+                        ForEach((0...2), id: \.self) { column in
+                            
+                            if let columnType = BetType.ColumnType(rawValue: column) {
+                                TextView(tableType: .type3, text: "2 to 1", width: rowCellWidth, height: rowCellHeight)
+                                    .background(selectedBet == .column(column: columnType) ? .yellow : .clear)
+                                    .onTapGesture {
+                                        placeBet(bet: .column(column: columnType))
+                                    }
+                            }
                         }
                     }
                 }
                 
                 HStack(spacing: 0) {
                     ForEach((0...2), id: \.self) { i in
-                        let s = ["st","nd","rd"]
-                        TextView(mode: 4, text: "\(i + 1)\(s[i]) 12", width: rowCellWidth * 4, height: rowCellHeight)
+                        let text = ["st","nd","rd"]
+                        
+                        if let dozenType = BetType.DozenType(rawValue: i) {
+                            TextView(tableType: .type4, text: "\(i + 1)\(text[i]) 12", width: rowCellWidth * 4, height: rowCellHeight)
+                                .background(selectedBet == .dozen(dozen: dozenType) ? .yellow : .clear)
+                                .onTapGesture {
+                                    placeBet(bet: .dozen(dozen: dozenType))
+                                }
+                        }
                     }
                 }
                 
                 HStack(spacing: 0) {
-                    TextView(mode: 5, text: "1 - 18", width: rowCellWidth * 2, height: rowCellHeight)
+                    TextView(tableType: .type5, text: "1 to 18", width: rowCellWidth * 2, height: rowCellHeight)
+                        .background(selectedBet == .lowHigh(high: false) ? .yellow : .clear)
+                        .onTapGesture {
+                            placeBet(bet: .lowHigh(high: false))
+                        }
                     
-                    TextView(mode: 5, text: "Even", width: rowCellWidth * 2, height: rowCellHeight)
+                    TextView(tableType: .type5, text: "Even", width: rowCellWidth * 2, height: rowCellHeight)
+                        .background(selectedBet == .oddEven(odd: false) ? .yellow : .clear)
+                        .onTapGesture {
+                            placeBet(bet: .oddEven(odd: false))
+                        }
                     
-                    TextView(mode: 5, text: "Red", width: rowCellWidth * 2, height: rowCellHeight)
-                        .background(.red)
                     
-                    TextView(mode: 5, text: "Black", width: rowCellWidth * 2, height: rowCellHeight)
-                        .background(.black)
+                    TextView(tableType: .type5, text: "Red", width: rowCellWidth * 2, height: rowCellHeight)
+                        .background(selectedBet == .redBlack(color: .red) ? .yellow : .red)
+                        .onTapGesture {
+                            placeBet(bet: .redBlack(color: .red))
+                        }
                     
-                    TextView(mode: 5, text: "Odd", width: rowCellWidth * 2, height: rowCellHeight)
+                    TextView(tableType: .type5, text: "Black", width: rowCellWidth * 2, height: rowCellHeight)
+                        .background(selectedBet == .redBlack(color: .black) ? .yellow : .black)
+                        .onTapGesture {
+                            placeBet(bet: .redBlack(color: .black))
+                        }
                     
-                    TextView(mode: 5, text: "19 - 36", width: rowCellWidth * 2, height: rowCellHeight)
+                    TextView(tableType: .type5, text: "Odd", width: rowCellWidth * 2, height: rowCellHeight)
+                        .background(selectedBet == .oddEven(odd: true) ? .yellow : .clear)
+                        .onTapGesture {
+                            placeBet(bet: .oddEven(odd: true))
+                        }
+                    
+                    TextView(tableType: .type5, text: "19 to 36", width: rowCellWidth * 2, height: rowCellHeight)
+                        .background(selectedBet == .lowHigh(high: true) ? .yellow : .clear)
+                        .onTapGesture {
+                            placeBet(bet: .lowHigh(high: true))
+                        }
                 }
             }
         }
         .frame(width: width, height: height)
+        .onChange(of: selectedBet) { bet in
+            switch bet {
+            case .none:
+                betType = .none
+            case .straight(let number):
+                betType = .straight(number: number)
+            case .column(let column):
+                betType = .column(column: column)
+            case .dozen(let dozen):
+                betType = .dozen(dozen: dozen)
+            case .lowHigh(let high):
+                betType = .lowHigh(high: high)
+            case .redBlack(let color):
+                betType = .redBlack(color: color)
+            case .oddEven(let odd):
+                betType = .oddEven(odd: odd)
+            }
+        }
     }
 }
 
 struct TableView_Previews: PreviewProvider {
     
     static var previews: some View {
-        TableView(num: .constant(-1), width: 400, height: 210)
+        TableView(betType: .constant(.none), width: .infinity, height: 250)
             .previewDevice(PreviewDevice(rawValue: "iPad (10nd generation)"))
-            .background(.gray)
+            .background(.green)
     }
 }

@@ -20,6 +20,7 @@
 		183B5F452A8CC609000537B7 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 183B5F442A8CC609000537B7 /* FirebaseDatabase */; };
 		183B5F482A8CC66B000537B7 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 183B5F472A8CC66B000537B7 /* FirebaseAnalytics */; };
 		185C537B2A8CE8A9005A1F70 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C537A2A8CE8A9005A1F70 /* SettingsView.swift */; };
+		188705ED2A90CF4700563DB2 /* BetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188705EC2A90CF4700563DB2 /* BetType.swift */; };
 		1893DCFE2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1893DCFD2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift */; };
 		1893DD022A8CBA53001F7EBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1893DD012A8CBA53001F7EBC /* Assets.xcassets */; };
 		1893DD052A8CBA53001F7EBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1893DD042A8CBA53001F7EBC /* Preview Assets.xcassets */; };
@@ -54,6 +55,7 @@
 		183B5F3D2A8CBF4E000537B7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		183B5F3F2A8CC4D0000537B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		185C537A2A8CE8A9005A1F70 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		188705EC2A90CF4700563DB2 /* BetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetType.swift; sourceTree = "<group>"; };
 		1893DCFA2A8CBA4F001F7EBC /* RouletteRoyale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouletteRoyale.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1893DCFD2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouletteRoyaleApp.swift; sourceTree = "<group>"; };
 		1893DD012A8CBA53001F7EBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				18E7F0F62A8E0E260045A37C /* UserData.swift */,
 				181BC0FA2A8D036F001253ED /* InputError.swift */,
 				181DBCAF2A8D48CF00D4CD5A /* FirebaseError.swift */,
+				188705EC2A90CF4700563DB2 /* BetType.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -467,6 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				183B5F3C2A8CBF04000537B7 /* LoginView.swift in Sources */,
+				188705ED2A90CF4700563DB2 /* BetType.swift in Sources */,
 				185C537B2A8CE8A9005A1F70 /* SettingsView.swift in Sources */,
 				18BFCD432A8CD91A00559CA3 /* AuthenticationControlView.swift in Sources */,
 				18CC21972A8FA05C00A41605 /* Wheel.swift in Sources */,
