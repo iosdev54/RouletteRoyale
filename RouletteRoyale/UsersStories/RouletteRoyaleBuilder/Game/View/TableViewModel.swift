@@ -5,25 +5,40 @@
 //  Created by Dmytro Grytsenko on 27.08.2023.
 //
 
-import Foundation
+import SwiftUI
 
 final class TableViewModel: ObservableObject {
-    var betType: BetType
-    @Published private var selectedBet: BetType = .none
+    @Binding var betType: BetType
+    @Published private(set) var selectedBet: BetType = .none
     
-    init(betType: BetType) {
-        self.betType = betType
+    let width: CGFloat
+    let height: CGFloat
+    
+    let topRowCellWidth: CGFloat
+    let topRowCellHeight: CGFloat
+    let bottomRowCellHeight: CGFloat
+    var adjustment: CGFloat
+    
+    init(betType: Binding<BetType>, width: CGFloat, height: CGFloat) {
+        self._betType = betType
+        self.width = width
+        self.height = height
+        
+        self.topRowCellWidth = width / 14
+        self.topRowCellHeight = height * 0.2
+        self.bottomRowCellHeight = height * 0.14
+        self.adjustment = height - ((topRowCellHeight * 3) + (bottomRowCellHeight * 2))
     }
     
-    private func makeBet(bet: BetType) {
+    func makeBet(_ bet: BetType) {
         selectedBet = (selectedBet == bet) ? .none : bet
     }
     
-    private func checkSelectedCell(bet: BetType) -> Bool {
+    func checkSelectedCell(_ bet: BetType) -> Bool {
         selectedBet == bet ? true : false
     }
     
-    private func addBet(bet: BetType) {
+    func addBet(bet: BetType) {
         switch bet {
         case .none:
             betType = .none

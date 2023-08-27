@@ -8,34 +8,18 @@
 import SwiftUI
 
 struct TableView: View {
-    @Binding var betType: BetType
-    @State private var selectedBet: BetType = .none
-    
-    let width: CGFloat
-    let height: CGFloat
-    
-    private let topRowCellWidth: CGFloat
-    private let topRowCellHeight: CGFloat
-    private let bottomRowCellHeight: CGFloat
-    private var adjustment: CGFloat
+    @StateObject private var viewModel: TableViewModel
     
     init(betType: Binding<BetType>, width: CGFloat, height: CGFloat) {
-        self._betType = betType
-        self.width = width
-        self.height = height
-        
-        self.topRowCellWidth = width / 14
-        self.topRowCellHeight = height * 0.2
-        self.bottomRowCellHeight = height * 0.14
-        self.adjustment = height - ((topRowCellHeight * 3) + (bottomRowCellHeight * 2))
+        self._viewModel = StateObject(wrappedValue: TableViewModel(betType: betType, width: width, height: height))
     }
     
     var body: some View {
         VStack(spacing: 0) {
             HStack(spacing: 0) {
-                TextView(tableType: .zero(number: 0), width: topRowCellWidth, height: topRowCellHeight * 3, selection: checkSelectedCell(bet: .straight(number: 0)))
+                TextView(tableType: .zero(number: 0), width: viewModel.topRowCellWidth, height: viewModel.topRowCellHeight * 3, selection: viewModel.checkSelectedCell(.straight(number: 0)))
                     .onTapGesture {
-                        makeBet(bet: .straight(number: 0))
+                        viewModel.makeBet(.straight(number: 0))
                     }
                 
                 VStack(spacing: 0) {
@@ -43,9 +27,9 @@ struct TableView: View {
                         HStack(spacing: 0) {
                             ForEach((1...12), id: \.self) { j in
                                 let number = j * 3 - i
-                                TextView(tableType: .straight(number: number), width: topRowCellWidth, height: topRowCellHeight, selection: checkSelectedCell(bet: .straight(number: number)))
+                                TextView(tableType: .straight(number: number), width: viewModel.topRowCellWidth, height: viewModel.topRowCellHeight, selection: viewModel.checkSelectedCell(.straight(number: number)))
                                     .onTapGesture {
-                                        makeBet(bet: .straight(number: number))
+                                        viewModel.makeBet(.straight(number: number))
                                     }
                             }
                         }
@@ -56,9 +40,9 @@ struct TableView: View {
                     ForEach((0...2), id: \.self) { column in
                         
                         if let columnType = BetType.ColumnType(rawValue: column) {
-                            TextView(tableType: .column(text: "2 to 1"), width: topRowCellWidth, height: topRowCellHeight, selection: checkSelectedCell(bet: .column(column: columnType)))
+                            TextView(tableType: .column(text: "2 to 1"), width: viewModel.topRowCellWidth, height: viewModel.topRowCellHeight, selection: viewModel.checkSelectedCell(.column(column: columnType)))
                                 .onTapGesture {
-                                    makeBet(bet: .column(column: columnType))
+                                    viewModel.makeBet(.column(column: columnType))
                                 }
                         }
                     }
@@ -70,75 +54,49 @@ struct TableView: View {
                     let text = ["st","nd","rd"]
                     
                     if let dozenType = BetType.DozenType(rawValue: i) {
-                        TextView(tableType: .dozen(text: "\(i + 1)\(text[i]) 12"), width: topRowCellWidth * 4, height: bottomRowCellHeight, selection: checkSelectedCell(bet: .dozen(dozen: dozenType)))
+                        TextView(tableType: .dozen(text: "\(i + 1)\(text[i]) 12"), width: viewModel.topRowCellWidth * 4, height: viewModel.bottomRowCellHeight, selection: viewModel.checkSelectedCell(.dozen(dozen: dozenType)))
                             .onTapGesture {
-                                makeBet(bet: .dozen(dozen: dozenType))
+                                viewModel.makeBet(.dozen(dozen: dozenType))
                             }
                     }
                 }
             }
             
             HStack(spacing: 0) {
-                TextView(tableType: .lowHigh(text: "1 to 18"), width: topRowCellWidth * 2, height: bottomRowCellHeight, selection: checkSelectedCell(bet: .lowHigh(high: false)))
+                TextView(tableType: .lowHigh(text: "1 to 18"), width: viewModel.topRowCellWidth * 2, height: viewModel.bottomRowCellHeight, selection: viewModel.checkSelectedCell(.lowHigh(high: false)))
                     .onTapGesture {
-                        makeBet(bet: .lowHigh(high: false))
+                        viewModel.makeBet(.lowHigh(high: false))
                     }
                 
-                TextView(tableType: .oddEven(text: "Even"), width: topRowCellWidth * 2, height: bottomRowCellHeight, selection: checkSelectedCell(bet: .oddEven(odd: false)))
+                TextView(tableType: .oddEven(text: "Even"), width: viewModel.topRowCellWidth * 2, height: viewModel.bottomRowCellHeight, selection: viewModel.checkSelectedCell(.oddEven(odd: false)))
                     .onTapGesture {
-                        makeBet(bet: .oddEven(odd: false))
+                        viewModel.makeBet(.oddEven(odd: false))
                     }
                 
-                TextView(tableType: .redBlack(color: .red), width: topRowCellWidth * 2, height: bottomRowCellHeight, selection: checkSelectedCell(bet: .redBlack(color: .red)))
+                TextView(tableType: .redBlack(color: .red), width: viewModel.topRowCellWidth * 2, height: viewModel.bottomRowCellHeight, selection: viewModel.checkSelectedCell(.redBlack(color: .red)))
                     .onTapGesture {
-                        makeBet(bet: .redBlack(color: .red))
+                        viewModel.makeBet(.redBlack(color: .red))
                     }
                 
-                TextView(tableType: .redBlack(color: .black), width: topRowCellWidth * 2, height: bottomRowCellHeight, selection: checkSelectedCell(bet: .redBlack(color: .black)))
+                TextView(tableType: .redBlack(color: .black), width: viewModel.topRowCellWidth * 2, height: viewModel.bottomRowCellHeight, selection: viewModel.checkSelectedCell(.redBlack(color: .black)))
                     .onTapGesture {
-                        makeBet(bet: .redBlack(color: .black))
+                        viewModel.makeBet(.redBlack(color: .black))
                     }
                 
-                TextView(tableType: .oddEven(text: "Odd"), width: topRowCellWidth * 2, height: bottomRowCellHeight, selection: checkSelectedCell(bet: .oddEven(odd: true)))
+                TextView(tableType: .oddEven(text: "Odd"), width: viewModel.topRowCellWidth * 2, height: viewModel.bottomRowCellHeight, selection: viewModel.checkSelectedCell(.oddEven(odd: true)))
                     .onTapGesture {
-                        makeBet(bet: .oddEven(odd: true))
+                        viewModel.makeBet(.oddEven(odd: true))
                     }
                 
-                TextView(tableType: .lowHigh(text: "19 to 36"), width: topRowCellWidth * 2, height: bottomRowCellHeight, selection: checkSelectedCell(bet: .lowHigh(high: true)))
+                TextView(tableType: .lowHigh(text: "19 to 36"), width: viewModel.topRowCellWidth * 2, height: viewModel.bottomRowCellHeight, selection: viewModel.checkSelectedCell(.lowHigh(high: true)))
                     .onTapGesture {
-                        makeBet(bet: .lowHigh(high: true))
+                        viewModel.makeBet(.lowHigh(high: true))
                     }
             }
         }
-        .frame(width: width, height: height - adjustment)
-        .onChange(of: selectedBet) { bet in
-            addBet(bet: bet)
-        }
-    }
-    private func makeBet(bet: BetType) {
-        selectedBet = (selectedBet == bet) ? .none : bet
-    }
-    
-    private func checkSelectedCell(bet: BetType) -> Bool {
-        selectedBet == bet ? true : false
-    }
-    
-    private func addBet(bet: BetType) {
-        switch bet {
-        case .none:
-            betType = .none
-        case .straight(let number):
-            betType = .straight(number: number)
-        case .column(let column):
-            betType = .column(column: column)
-        case .dozen(let dozen):
-            betType = .dozen(dozen: dozen)
-        case .lowHigh(let high):
-            betType = .lowHigh(high: high)
-        case .redBlack(let color):
-            betType = .redBlack(color: color)
-        case .oddEven(let odd):
-            betType = .oddEven(odd: odd)
+        .frame(width: viewModel.width, height: viewModel.height - viewModel.adjustment)
+        .onChange(of: viewModel.selectedBet) { bet in
+            viewModel.addBet(bet: bet)
         }
     }
 }
