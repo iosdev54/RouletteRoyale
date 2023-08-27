@@ -58,7 +58,11 @@ struct GameView: View {
             }
             .padding(.horizontal)
         }
-        .background(.green)
+        .background(
+            Image("gameBackground")
+                .resizable()
+                .ignoresSafeArea()
+        )
         .overlay {
             if let result = viewModel.feedback {
                 ResultView(result: result, closeAction: {

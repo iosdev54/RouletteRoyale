@@ -21,6 +21,9 @@
 		183B5F432A8CC609000537B7 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 183B5F422A8CC609000537B7 /* FirebaseAuth */; };
 		183B5F452A8CC609000537B7 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 183B5F442A8CC609000537B7 /* FirebaseDatabase */; };
 		183B5F482A8CC66B000537B7 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 183B5F472A8CC66B000537B7 /* FirebaseAnalytics */; };
+		183EBE1F2A9B531300835ED9 /* GameConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EBE1E2A9B531300835ED9 /* GameConstants.swift */; };
+		183EBE212A9B547700835ED9 /* TableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EBE202A9B547700835ED9 /* TableViewModel.swift */; };
+		183EBE232A9B594900835ED9 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183EBE222A9B594900835ED9 /* Constants.swift */; };
 		185C537B2A8CE8A9005A1F70 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185C537A2A8CE8A9005A1F70 /* SettingsView.swift */; };
 		188705ED2A90CF4700563DB2 /* BetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188705EC2A90CF4700563DB2 /* BetType.swift */; };
 		1893DCFE2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1893DCFD2A8CBA4F001F7EBC /* RouletteRoyaleApp.swift */; };
@@ -58,6 +61,9 @@
 		183B5F3B2A8CBF04000537B7 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		183B5F3D2A8CBF4E000537B7 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		183B5F3F2A8CC4D0000537B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		183EBE1E2A9B531300835ED9 /* GameConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameConstants.swift; sourceTree = "<group>"; };
+		183EBE202A9B547700835ED9 /* TableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewModel.swift; sourceTree = "<group>"; };
+		183EBE222A9B594900835ED9 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		185C537A2A8CE8A9005A1F70 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		188705EC2A90CF4700563DB2 /* BetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetType.swift; sourceTree = "<group>"; };
 		1893DCFA2A8CBA4F001F7EBC /* RouletteRoyale.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RouletteRoyale.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -206,6 +212,8 @@
 			children = (
 				185E5D032A8FF94D00B85927 /* Models */,
 				1808E3312A8D2EC1004B0213 /* Components */,
+				183EBE1E2A9B531300835ED9 /* GameConstants.swift */,
+				183EBE222A9B594900835ED9 /* Constants.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -312,6 +320,7 @@
 				18CC21962A8FA05C00A41605 /* Wheel.swift */,
 				18CC21982A8FA58000A41605 /* Arrow.swift */,
 				18CC219C2A8FAF7300A41605 /* TableView.swift */,
+				183EBE202A9B547700835ED9 /* TableViewModel.swift */,
 				18CC21A02A8FAFBE00A41605 /* TextView.swift */,
 				1802E4722A90F9420029AE60 /* ResultView.swift */,
 			);
@@ -478,6 +487,7 @@
 				183B5F3C2A8CBF04000537B7 /* LoginView.swift in Sources */,
 				188705ED2A90CF4700563DB2 /* BetType.swift in Sources */,
 				185C537B2A8CE8A9005A1F70 /* SettingsView.swift in Sources */,
+				183EBE212A9B547700835ED9 /* TableViewModel.swift in Sources */,
 				18BFCD432A8CD91A00559CA3 /* AuthenticationControlView.swift in Sources */,
 				18CC21972A8FA05C00A41605 /* Wheel.swift in Sources */,
 				1808E3332A8D2EE9004B0213 /* UserView.swift in Sources */,
@@ -497,6 +507,7 @@
 				18FF6CE22A8D10F300FEE72C /* CustomButton.swift in Sources */,
 				183B5F3E2A8CBF4E000537B7 /* SignUpView.swift in Sources */,
 				18CC21992A8FA58000A41605 /* Arrow.swift in Sources */,
+				183EBE232A9B594900835ED9 /* Constants.swift in Sources */,
 				18CC21932A8F9B2100A41605 /* GameView.swift in Sources */,
 				18FF6CDD2A8D070200FEE72C /* SignUpViewModel.swift in Sources */,
 				18CC219D2A8FAF7300A41605 /* TableView.swift in Sources */,
@@ -504,6 +515,7 @@
 				180421452A8E3E50005F04A4 /* RatingView.swift in Sources */,
 				18CC21A12A8FAFBE00A41605 /* TextView.swift in Sources */,
 				18E82FDC2A8E5EAB0014985D /* TabBarViewModel.swift in Sources */,
+				183EBE1F2A9B531300835ED9 /* GameConstants.swift in Sources */,
 				181BC0F82A8CF75D001253ED /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,39 +8,123 @@
 import SwiftUI
 
 struct TextView: View {
-    enum TableType {
-        case type1, type2, type3, type4, type5
+    enum TableType: Equatable {
+        case zero(number: Int)
+        case straight(number: Int)
+        case column(text: String)
+        case dozen(text: String)
+        case lowHigh(text: String)
+        case redBlack(color: BetType.ColorType)
+        case oddEven(text: String)
     }
     
-    @State var tableType: TableType
-    @State var text: String
+    private struct ZeroShape: Shape {
+        func path(in rect: CGRect) -> Path {
+            var path = Path()
+            path.move(to: CGPoint(x: rect.maxX, y: rect.minY))
+            path.addLine(to: CGPoint(x: rect.maxX, y: rect.maxY))
+            path.addLine(to: CGPoint(x: rect.midX, y: rect.maxY))
+            path.addLine(to: CGPoint(x: rect.minX, y: rect.midY))
+            path.addLine(to: CGPoint(x: rect.midX, y: rect.minY))
+            path.closeSubpath()
+            return path
+        }
+    }
     
+    private struct ColorShape: Shape {
+        func path(in rect: CGRect) -> Path {
+            var path = Path()
+            path.move(to: CGPoint(x: rect.midX, y: rect.minY))
+            path.addLine(to: CGPoint(x: rect.maxX, y: rect.midY))
+            path.addLine(to: CGPoint(x: rect.midX, y: rect.maxY))
+            path.addLine(to: CGPoint(x: rect.minX, y: rect.midY))
+            path.closeSubpath()
+            return path
+        }
+    }
+    
+    let tableType: TableType
     let width: CGFloat
     let height: CGFloat
+    let selection: Bool
     
     var body: some View {
-        if tableType == .type1 || tableType == .type2 || tableType == .type3 {
-            Text(text)
-                .rotationEffect(.degrees(270), anchor: .center)
-                .font(tableType == .type3 ? .footnote : .body)
-                .kerning(tableType == .type3 ? -1 : 0)
-                .minimumScaleFactor(tableType == .type3 ? 0.7 : 1)
-                .lineLimit(1)
-                .foregroundColor(.white)
-                .frame(width: width, height: height)
-                .border(.white, width: 1)
-            //                .contentShape(Rectangle())
+        switch tableType {
+        case .zero(number: let number):
+            ZStack {
+                ZeroShape()
+                    .fill(selection ? .yellow.opacity(0.8) : .clear)
+                
+                getText(with: tableType, text: "\(number)")
+            }
             
-        } else if tableType == .type4 || tableType == .type5 {
-            Text(text)
-                .foregroundColor(.white)
-                .font(.body)
-                .kerning(tableType == .type5 ? -1 : 0)
-                .minimumScaleFactor(tableType == .type5 ? 0.7 : 1)
-                .lineLimit(1)
-                .frame(width: width, height: height)
-                .border(.white, width: 1)
-            //                .contentShape(Rectangle())
+        case .straight(number: let number):
+            ZStack {
+                Ellipse()
+                    .fill(GameConstants.redBlock.contains(number) ? .red : .black)
+                    .frame(width: width * 0.8, height: height * 0.75)
+                
+                getText(with: tableType, text: "\(number)")
+            }
+            .background(selection ? .yellow.opacity(0.8) : .clear)
+            
+        case .column(text: let text), .dozen(text: let text), .lowHigh(text: let text), .oddEven(text: let text):
+            getText(with: tableType, text: text)
+                .background(selection ? .yellow.opacity(0.8) : .clear)
+            
+        case .redBlack(let color):
+            ZStack {
+                ColorShape()
+                    .fill(color == .red ? .red : .black)
+                    .frame(width: width * 0.6, height: height * 0.6)
+                
+                getText(with: tableType, text: "")
+            }
+            .background(selection ? .yellow.opacity(0.8) : .clear)
+        }
+    }
+    
+    private func getText(with type: TableType, text: String) -> some View {
+        var kerning: CGFloat {
+            switch type {
+            case .column, .lowHigh: return -1
+            default: return 0
+            }
+        }
+        
+        var minimumScaleFactor: CGFloat {
+            switch type {
+            case .column, .lowHigh: return 0.7
+            default: return 1
+            }
+        }
+        
+        return Text(text)
+            .rotationEffect(rotationAngle(for: type), anchor: .center)
+            .kerning(kerning)
+            .minimumScaleFactor(minimumScaleFactor)
+            .lineLimit(1)
+            .foregroundColor(.white)
+            .frame(width: width, height: height)
+            .overlay(overlayShape(with: type))
+    }
+    
+    private func rotationAngle(for type: TableType) -> Angle {
+        switch type {
+        case .zero, .straight, .column:
+            return .degrees(270)
+        case .dozen, .lowHigh, .oddEven, .redBlack:
+            return .degrees(0)
+        }
+    }
+    
+    @ViewBuilder
+    private func overlayShape(with type: TableType) -> some View {
+        switch type {
+        case .zero:
+            ZeroShape().stroke(Color.white, lineWidth: 1.5)
+        default:
+            Rectangle().stroke(Color.white, lineWidth: 1.5)
         }
     }
 }

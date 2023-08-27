@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Roulette.png",
+      "filename" : "roulette.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Roulette@2x.png",
+      "filename" : "roulette@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Roulette@3x.png",
+      "filename" : "roulette@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

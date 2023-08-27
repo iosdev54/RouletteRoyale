@@ -19,7 +19,7 @@ struct Wheel: View {
     
     var body: some View {
         HStack {
-            Image("Roulette")
+            Image("roulette")
                 .resizable()
                 .scaledToFit()
                 .frame(minWidth: 100, maxWidth: .infinity, minHeight: 100, maxHeight: .infinity)
