@@ -187,6 +187,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		1809CF5A2A9CE91300691A0B /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				1802E4722A90F9420029AE60 /* ResultView.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
 		181BC0F52A8CF72D001253ED /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -368,7 +376,6 @@
 			isa = PBXGroup;
 			children = (
 				18CC21922A8F9B2100A41605 /* GameView.swift */,
-				1802E4722A90F9420029AE60 /* ResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -402,6 +409,7 @@
 		18F0AB362A9B803D00AE646F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1809CF5A2A9CE91300691A0B /* Result */,
 				1809CF572A9CE7FE00691A0B /* Wheel */,
 				18F0AB372A9B805400AE646F /* Text */,
 				1800384C2A9B9E3300F21E53 /* Table */,
