@@ -30,30 +30,15 @@ final class TableViewModel: ObservableObject {
         self.adjustment = height - ((topRowCellHeight * 3) + (bottomRowCellHeight * 2))
     }
     
-    func makeBet(_ bet: BetType) {
+    func selectBet(_ bet: BetType) {
         selectedBet = (selectedBet == bet) ? .none : bet
     }
     
-    func checkSelectedCell(_ bet: BetType) -> Bool {
+    func checkSelectedBet(_ bet: BetType) -> Bool {
         selectedBet == bet ? true : false
     }
     
     func addBet(bet: BetType) {
-        switch bet {
-        case .none:
-            betType = .none
-        case .straight(let number):
-            betType = .straight(number: number)
-        case .column(let column):
-            betType = .column(column: column)
-        case .dozen(let dozen):
-            betType = .dozen(dozen: dozen)
-        case .lowHigh(let high):
-            betType = .lowHigh(high: high)
-        case .redBlack(let color):
-            betType = .redBlack(color: color)
-        case .oddEven(let odd):
-            betType = .oddEven(odd: odd)
-        }
+        betType = bet
     }
 }

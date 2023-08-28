@@ -46,10 +46,10 @@ struct GameView: View {
             
             GeometryReader { proxy in
                 VStack {
-                    Wheel(number: $viewModel.number, onSuccess: {
+                    WheelView(number: $viewModel.number) {
                         viewModel.checkBet(betType: viewModel.betType, winningNumber: viewModel.number, betAmount: viewModel.betAmount)
                         
-                    })
+                    }
                     .frame(width: proxy.size.width * 0.7, height: proxy.size.width * 0.7)
                     .offset(x: 10)
                     

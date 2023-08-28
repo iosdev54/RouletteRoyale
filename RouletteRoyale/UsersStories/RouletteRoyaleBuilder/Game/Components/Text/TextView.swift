@@ -8,7 +8,14 @@
 import SwiftUI
 
 struct TextView: View {
-    enum TableType: Equatable {
+    private enum Constants {
+        static let selectionOpacity: Double = 0.8
+        static let overlayStrokeWidth: CGFloat = 1.5
+        static let kerningForColumnAndLowHigh: CGFloat = -1
+        static let minimumScaleFactorForColumnAndLowHigh: CGFloat = 0.7
+    }
+    
+    enum TableType {
         case zero(number: Int)
         case straight(number: Int)
         case column(text: String)
@@ -46,55 +53,60 @@ struct TextView: View {
     let tableType: TableType
     let width: CGFloat
     let height: CGFloat
-    let selection: Bool
+    let isSelected: Bool
+    
+    let action: () -> Void
     
     var body: some View {
-        switch tableType {
-        case .zero(number: let number):
-            ZStack {
-                ZeroShape()
-                    .fill(selection ? .yellow.opacity(0.8) : .clear)
+        ZStack {
+            switch tableType {
+            case .zero(number: let number):
+                ZStack {
+                    ZeroShape()
+                        .fill(isSelected ? .yellow.opacity(TextView.Constants.selectionOpacity) : .clear)
+                    
+                    getText(with: tableType, text: "\(number)")
+                }
                 
-                getText(with: tableType, text: "\(number)")
-            }
-            
-        case .straight(number: let number):
-            ZStack {
-                Ellipse()
-                    .fill(GameConstants.redBlock.contains(number) ? .red : .black)
-                    .frame(width: width * 0.8, height: height * 0.75)
+            case .straight(number: let number):
+                ZStack {
+                    Ellipse()
+                        .fill(GameConstants.redBlock.contains(number) ? .red : .black)
+                        .frame(width: width * 0.8, height: height * 0.75)
+                    
+                    getText(with: tableType, text: "\(number)")
+                }
+                .background(isSelected ? .yellow.opacity(TextView.Constants.selectionOpacity) : .clear)
                 
-                getText(with: tableType, text: "\(number)")
-            }
-            .background(selection ? .yellow.opacity(0.8) : .clear)
-            
-        case .column(text: let text), .dozen(text: let text), .lowHigh(text: let text), .oddEven(text: let text):
-            getText(with: tableType, text: text)
-                .background(selection ? .yellow.opacity(0.8) : .clear)
-            
-        case .redBlack(let color):
-            ZStack {
-                ColorShape()
-                    .fill(color == .red ? .red : .black)
-                    .frame(width: width * 0.6, height: height * 0.6)
+            case .column(text: let text), .dozen(text: let text), .lowHigh(text: let text), .oddEven(text: let text):
+                getText(with: tableType, text: text)
+                    .background(isSelected ? .yellow.opacity(TextView.Constants.selectionOpacity) : .clear)
                 
-                getText(with: tableType, text: "")
+            case .redBlack(let color):
+                ZStack {
+                    ColorShape()
+                        .fill(color == .red ? .red : .black)
+                        .frame(width: width * 0.6, height: height * 0.6)
+                    
+                    getText(with: tableType, text: "")
+                }
+                .background(isSelected ? .yellow.opacity(TextView.Constants.selectionOpacity) : .clear)
             }
-            .background(selection ? .yellow.opacity(0.8) : .clear)
         }
+        .onTapGesture(perform: action)
     }
     
     private func getText(with type: TableType, text: String) -> some View {
         var kerning: CGFloat {
             switch type {
-            case .column, .lowHigh: return -1
+            case .column, .lowHigh: return TextView.Constants.kerningForColumnAndLowHigh
             default: return 0
             }
         }
         
         var minimumScaleFactor: CGFloat {
             switch type {
-            case .column, .lowHigh: return 0.7
+            case .column, .lowHigh: return TextView.Constants.minimumScaleFactorForColumnAndLowHigh
             default: return 1
             }
         }
@@ -122,9 +134,9 @@ struct TextView: View {
     private func overlayShape(with type: TableType) -> some View {
         switch type {
         case .zero:
-            ZeroShape().stroke(Color.white, lineWidth: 1.5)
+            ZeroShape().stroke(Color.white, lineWidth: TextView.Constants.overlayStrokeWidth)
         default:
-            Rectangle().stroke(Color.white, lineWidth: 1.5)
+            Rectangle().stroke(Color.white, lineWidth: TextView.Constants.overlayStrokeWidth)
         }
     }
 }

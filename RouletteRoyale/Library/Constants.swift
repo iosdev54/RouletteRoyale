@@ -10,5 +10,6 @@ import SwiftUI
 enum Constants {
     enum Images {
         static let gameBackground = Image("gameBackground")
+        static let rouletteImage = Image("roulette")
     }
 }
