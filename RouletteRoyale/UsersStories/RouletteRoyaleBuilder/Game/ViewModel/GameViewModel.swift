@@ -20,6 +20,14 @@ final class GameViewModel: ObservableObject {
         userData.chips / bet
     }
     
+    private var isBetPlaced: Bool {
+        return betType != .none
+    }
+    
+    var canStartGame: Bool {
+        return isBetPlaced && !isSpinning
+    }
+    
     init(userData: UserData) {
         self.userData = userData
     }
@@ -31,121 +39,40 @@ final class GameViewModel: ObservableObject {
     }
     
     func checkBet(betType: BetType, winningNumber: Int, betAmount: Int) {
+        var resultAmount = 0
+        var win = false
+        
         switch betType {
         case .none:
             break
         case .straight(let number):
-            if number == winningNumber {
-                let resultAmount = betAmount * 36
-                userData.chips += resultAmount
-                feedback = BetResult(win: true, amount: resultAmount)
-            } else {
-                userData.chips -= betAmount
-                feedback = BetResult(win: false, amount: betAmount)
-            }
-            userData.saveToFirebase()
-            
+            win = number == winningNumber
+            resultAmount = win ? betAmount * 36 : -betAmount
         case .column(let column):
-            let numbersInColumns = [[3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36],
-                                    [2, 5, 8, 11, 14, 17, 20, 23, 26, 29, 32, 35],
-                                    [1, 4, 7, 10, 13, 16, 19, 22, 25, 28, 31, 34]]
-            
-            switch column {
-            case .first:
-                if numbersInColumns[0].contains(winningNumber) {
-                    let resultAmount = betAmount * 2
-                    userData.chips += resultAmount
-                    feedback = BetResult(win: true, amount: resultAmount)
-                } else {
-                    userData.chips -= betAmount
-                    feedback = BetResult(win: false, amount: betAmount)
-                }
-                userData.saveToFirebase()
-            case .second:
-                if numbersInColumns[1].contains(winningNumber) {
-                    let resultAmount = betAmount * 2
-                    userData.chips += resultAmount
-                    feedback = BetResult(win: true, amount: resultAmount)
-                } else {
-                    userData.chips -= betAmount
-                    feedback = BetResult(win: false, amount: betAmount)
-                }
-                userData.saveToFirebase()
-            case .third:
-                if numbersInColumns[2].contains(winningNumber) {
-                    let resultAmount = betAmount * 2
-                    userData.chips += resultAmount
-                    feedback = BetResult(win: true, amount: resultAmount)
-                } else {
-                    userData.chips -= betAmount
-                    feedback = BetResult(win: false, amount: betAmount)
-                }
-                userData.saveToFirebase()
-            }
+            let winningColumns = GameConstants.numbersInColumns[column.rawValue]
+            win = winningColumns.contains(winningNumber)
+            resultAmount = win ? betAmount * 2 : -betAmount
         case .dozen(let dozen):
-            let firstDozenNumbers = 1...12
-            let secondDozenNumbers = 13...24
-            let thirdDozenNumbers = 25...36
-            let winningDozen: ClosedRange<Int>
-            
-            switch dozen {
-                
-            case .first:
-                winningDozen = firstDozenNumbers
-            case .second:
-                winningDozen = secondDozenNumbers
-            case .third:
-                winningDozen = thirdDozenNumbers
-            }
-            
-            if winningDozen.contains(winningNumber) {
-                let resultAmount = betAmount * 3
-                userData.chips += resultAmount
-                feedback = BetResult(win: true, amount: resultAmount)
-            } else {
-                userData.chips -= betAmount
-                feedback = BetResult(win: false, amount: betAmount)
-            }
-            userData.saveToFirebase()
-            
+            let winningRange = GameConstants.dozenNumbers[dozen.rawValue]
+            win = winningRange.contains(winningNumber)
+            resultAmount = win ? betAmount * 3 : -betAmount
         case .lowHigh(let high):
-            
-            let winningRange: ClosedRange<Int> = high ? 19...36 : 1...18
-            if winningRange.contains(winningNumber) {
-                let resultAmount = betAmount * 2
-                userData.chips += resultAmount
-                feedback = BetResult(win: true, amount: resultAmount)
-            } else {
-                userData.chips -= betAmount
-                feedback = BetResult(win: false, amount: betAmount)
-            }
-            userData.saveToFirebase()
-            
+            let winningRange = high ? 19...36 : 1...18
+            win = winningRange.contains(winningNumber)
+            resultAmount = win ? betAmount * 2 : -betAmount
         case .redBlack(let color):
-            
-            let winningColor: BetType.ColorType = winningNumber % 2 == 0 ? .black : .red
-            if color == winningColor {
-                let resultAmount = betAmount * 2
-                userData.chips += resultAmount
-                feedback = BetResult(win: true, amount: resultAmount)
-            } else {
-                userData.chips -= betAmount
-                feedback = BetResult(win: false, amount: betAmount)
-            }
-            userData.saveToFirebase()
-            
+            let winningColor: BetType.ColorType = GameConstants.blackBlock.contains(winningNumber) ? .black : .red
+            win = color == winningColor
+            resultAmount = win ? betAmount * 2 : -betAmount
         case .oddEven(let odd):
             let winningParity = winningNumber % 2 == 0 ? false : true
-            if odd == winningParity {
-                let resultAmount = betAmount * 2
-                userData.chips += resultAmount
-                feedback = BetResult(win: true, amount: resultAmount)
-            } else {
-                userData.chips -= betAmount
-                feedback = BetResult(win: false, amount: betAmount)
-            }
-            userData.saveToFirebase()
+            win = odd == winningParity
+            resultAmount = win ? betAmount * 2 : -betAmount
         }
+        
+        userData.chips += resultAmount
+        feedback = BetResult(win: win, amount: abs(resultAmount))
+        userData.saveToFirebase()
         isSpinning = false
     }
 }

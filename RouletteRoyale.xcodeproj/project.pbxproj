@@ -31,6 +31,8 @@
 		1893DD022A8CBA53001F7EBC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1893DD012A8CBA53001F7EBC /* Assets.xcassets */; };
 		1893DD052A8CBA53001F7EBC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1893DD042A8CBA53001F7EBC /* Preview Assets.xcassets */; };
 		1893DD0C2A8CBA71001F7EBC /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 1893DD0B2A8CBA71001F7EBC /* .gitignore */; };
+		18BAF3402AA1FBBF0036F770 /* CustomStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BAF33F2AA1FBBF0036F770 /* CustomStepper.swift */; };
+		18BEA29E2A9F456F0010B151 /* BetControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BEA29D2A9F456F0010B151 /* BetControlsView.swift */; };
 		18BFCD3A2A8CC91900559CA3 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD392A8CC91900559CA3 /* FirebaseService.swift */; };
 		18BFCD3F2A8CD72500559CA3 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */; };
 		18BFCD432A8CD91A00559CA3 /* AuthenticationControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */; };
@@ -72,6 +74,8 @@
 		1893DD012A8CBA53001F7EBC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1893DD042A8CBA53001F7EBC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1893DD0B2A8CBA71001F7EBC /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		18BAF33F2AA1FBBF0036F770 /* CustomStepper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomStepper.swift; sourceTree = "<group>"; };
+		18BEA29D2A9F456F0010B151 /* BetControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BetControlsView.swift; sourceTree = "<group>"; };
 		18BFCD392A8CC91900559CA3 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
 		18BFCD3E2A8CD72500559CA3 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		18BFCD422A8CD91A00559CA3 /* AuthenticationControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationControlView.swift; sourceTree = "<group>"; };
@@ -325,6 +329,15 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		18BEA29C2A9F45540010B151 /* BetControls */ = {
+			isa = PBXGroup;
+			children = (
+				18BEA29D2A9F456F0010B151 /* BetControlsView.swift */,
+				18BAF33F2AA1FBBF0036F770 /* CustomStepper.swift */,
+			);
+			path = BetControls;
+			sourceTree = "<group>";
+		};
 		18BFCD3B2A8CCC9D00559CA3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -409,6 +422,7 @@
 		18F0AB362A9B803D00AE646F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				18BEA29C2A9F45540010B151 /* BetControls */,
 				1809CF5A2A9CE91300691A0B /* Result */,
 				1809CF572A9CE7FE00691A0B /* Wheel */,
 				18F0AB372A9B805400AE646F /* Text */,
@@ -560,11 +574,13 @@
 				188705ED2A90CF4700563DB2 /* BetType.swift in Sources */,
 				185C537B2A8CE8A9005A1F70 /* SettingsView.swift in Sources */,
 				183EBE212A9B547700835ED9 /* TableViewModel.swift in Sources */,
+				18BEA29E2A9F456F0010B151 /* BetControlsView.swift in Sources */,
 				18BFCD432A8CD91A00559CA3 /* AuthenticationControlView.swift in Sources */,
 				18CC21972A8FA05C00A41605 /* WheelView.swift in Sources */,
 				1808E3332A8D2EE9004B0213 /* UserView.swift in Sources */,
 				18C222182A8D1EA50030BC6F /* AnonymousRegistrationViewModel.swift in Sources */,
 				181BC0FB2A8D036F001253ED /* InputError.swift in Sources */,
+				18BAF3402AA1FBBF0036F770 /* CustomStepper.swift in Sources */,
 				18BFCD452A8CD94C00559CA3 /* MainView.swift in Sources */,
 				18FF6CE92A8D18EA00FEE72C /* AnonymousRegistrationView.swift in Sources */,
 				18BFCD3A2A8CC91900559CA3 /* FirebaseService.swift in Sources */,

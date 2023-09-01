@@ -14,33 +14,17 @@ struct GameView: View {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
+    private var backgroundImage: Image {
+        Constants.Images.gameBackground
+    }
+    
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
                 UserView(userData: viewModel.userData, background: .teal)
                     .animation(.easeInOut, value: viewModel.userData)
                 
-                HStack(spacing: 40) {
-                    VStack(spacing: 5) {
-                        Text("BET")
-                        Stepper("Bet", value: $viewModel.bet, in: 1...10, step: 1)
-                            .labelsHidden()
-                        Text(String(viewModel.bet))
-                    }
-                    .font(.title.bold())
-                    .foregroundColor(.yellow)
-                    
-                    Button(action: viewModel.startGame) {
-                        Text("START")
-                            .font(.title.bold())
-                            .foregroundColor(.white)
-                    }
-                    .padding()
-                    .padding(.horizontal)
-                    .background(viewModel.betType == .none || viewModel.isSpinning ? .gray : .red)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
-                    .disabled(viewModel.betType == .none || viewModel.isSpinning ? true : false)
-                }
+                BetControlsView(bet: $viewModel.bet, startGame: viewModel.startGame, canStartGame: viewModel.canStartGame)
             }
             .padding(.horizontal)
             
@@ -51,7 +35,7 @@ struct GameView: View {
                         
                     }
                     .frame(width: proxy.size.width * 0.7, height: proxy.size.width * 0.7)
-                    .offset(x: 10)
+                    .padding(.leading, 10)
                     
                     TableView(betType: $viewModel.betType, width: proxy.size.width, height: 250)
                 }
@@ -59,7 +43,7 @@ struct GameView: View {
             .padding(.horizontal)
         }
         .background(
-            Image("gameBackground")
+            backgroundImage
                 .resizable()
                 .ignoresSafeArea()
         )
