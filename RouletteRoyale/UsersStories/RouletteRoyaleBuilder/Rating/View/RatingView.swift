@@ -19,14 +19,14 @@ struct RatingView: View {
     
     var body: some View {
         VStack {
-            UserView(userData: userData, background: .teal)
+            UserView(userData: userData)
                 .animation(.easeInOut, value: userData)
                 .padding()
             
             ScrollView {
                 LazyVStack(spacing: 16) {
                     ForEach(filteredUsers, content: { user in
-                        UserView(userData: user)
+                        UserView(userData: user, background: .material(.thin))
                     })
                     .offset(y: 10)
                 }
@@ -42,7 +42,13 @@ struct RatingView: View {
 
 struct RatingView_Previews: PreviewProvider {
     static var previews: some View {
-        RatingView()
-            .environmentObject(UserData())
+        ZStack {
+            Constants.Images.gameBackground
+                .resizable()
+                .ignoresSafeArea()
+            
+            RatingView()
+                .environmentObject(UserData())
+        }
     }
 }

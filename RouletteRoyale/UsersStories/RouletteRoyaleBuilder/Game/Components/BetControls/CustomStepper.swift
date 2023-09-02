@@ -12,7 +12,7 @@ struct CustomStepper: View {
         static let minusSignColor: Color = .red
         static let plusSignColor: Color = .green
         static let disabledStateOpacity: Double = 0.5
-        static let backgroundColor: Color = .yellow.opacity(0.4)
+        static let backgroundColor: Material = .ultraThinMaterial
     }
     
     @Binding var value: Int
@@ -23,7 +23,7 @@ struct CustomStepper: View {
         HStack(spacing: 25) {
             Button(action: decrement) {
                 Image(systemName: "minus")
-                    .font(.title)
+                    .font(.title.bold())
                     .foregroundColor(
                         value == range.lowerBound ? CustomStepper.Constants.minusSignColor.opacity(CustomStepper.Constants.disabledStateOpacity)
                         : CustomStepper.Constants.minusSignColor)
@@ -32,7 +32,7 @@ struct CustomStepper: View {
             
             Button(action: increment) {
                 Image(systemName: "plus")
-                    .font(.title)
+                    .font(.title.bold())
                     .foregroundColor(value == range.upperBound ? CustomStepper.Constants.plusSignColor.opacity(CustomStepper.Constants.disabledStateOpacity) : CustomStepper.Constants.plusSignColor)
             }
             .disabled(value >= range.upperBound)

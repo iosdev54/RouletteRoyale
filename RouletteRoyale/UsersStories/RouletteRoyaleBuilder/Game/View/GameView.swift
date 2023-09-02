@@ -14,14 +14,10 @@ struct GameView: View {
         self._viewModel = StateObject(wrappedValue: viewModel)
     }
     
-    private var backgroundImage: Image {
-        Constants.Images.gameBackground
-    }
-    
     var body: some View {
         ScrollView {
             VStack(spacing: 20) {
-                UserView(userData: viewModel.userData, background: .teal)
+                UserView(userData: viewModel.userData)
                     .animation(.easeInOut, value: viewModel.userData)
                 
                 BetControlsView(bet: $viewModel.bet, startGame: viewModel.startGame, canStartGame: viewModel.canStartGame)
@@ -42,11 +38,6 @@ struct GameView: View {
             }
             .padding(.horizontal)
         }
-        .background(
-            backgroundImage
-                .resizable()
-                .ignoresSafeArea()
-        )
         .overlay {
             if let result = viewModel.feedback {
                 ResultView(result: result, closeAction: {
@@ -59,7 +50,13 @@ struct GameView: View {
 
 struct GameView_Previews: PreviewProvider {
     static var previews: some View {
-        GameView(viewModel: GameViewModel(userData: UserData()))
-            .environmentObject(UserData())
+        ZStack {
+            Constants.Images.gameBackground
+                .resizable()
+                .ignoresSafeArea()
+            
+            GameView(viewModel: GameViewModel(userData: UserData()))
+                .environmentObject(UserData())
+        }
     }
 }

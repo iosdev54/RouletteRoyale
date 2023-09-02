@@ -20,6 +20,7 @@ final class UserData: Equatable, Comparable, Identifiable, ObservableObject {
         }
     }
     @Published var winRate: Double = 0.0
+    @Published var isDataAvailable: Bool = false
     
     init() {
         if let userId = FirebaseService.shared.currentUserId {
@@ -30,6 +31,7 @@ final class UserData: Equatable, Comparable, Identifiable, ObservableObject {
                     switch result {
                     case .success(let updatedUserData):
                         self.update(with: updatedUserData)
+                        self.isDataAvailable = true
                     case .failure(let error):
                         print("DEBUG: Error observing user data changes: \(error.localizedDescription)")
                     }
@@ -51,6 +53,8 @@ final class UserData: Equatable, Comparable, Identifiable, ObservableObject {
         self.name = name
         self.chips = chips
         self.winRate = winRate
+        
+        self.isDataAvailable = true
     }
     
     private func update(with userData: UserData) {
