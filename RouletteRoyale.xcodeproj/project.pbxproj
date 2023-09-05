@@ -163,6 +163,8 @@
 		1808E3312A8D2EC1004B0213 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				1808E3322A8D2EE9004B0213 /* UserView.swift */,
+				18FE7D0D2AA22E360007C49E /* BackgroundStyle.swift */,
 				18FF6CE12A8D10F300FEE72C /* CustomButton.swift */,
 			);
 			path = Components;
@@ -479,8 +481,6 @@
 			isa = PBXGroup;
 			children = (
 				185C537A2A8CE8A9005A1F70 /* SettingsView.swift */,
-				1808E3322A8D2EE9004B0213 /* UserView.swift */,
-				18FE7D0D2AA22E360007C49E /* BackgroundStyle.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

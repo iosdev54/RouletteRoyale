@@ -21,7 +21,7 @@ struct AnonymousRegistrationView: View {
                 .fontWeight(.bold)
                 .multilineTextAlignment(.center)
             
-            CustomButton(isLoading: $viewModel.isLoading, title: "Register Anonymously", color: .blue, completion: viewModel.registerAnonymously)
+            CustomButton(isLoading: viewModel.isLoading, title: "Register Anonymously", color: .blue, completion: viewModel.registerAnonymously)
                 .disabled(viewModel.isLoading)
                 .animation(.easeInOut, value: viewModel.isLoading)
         }

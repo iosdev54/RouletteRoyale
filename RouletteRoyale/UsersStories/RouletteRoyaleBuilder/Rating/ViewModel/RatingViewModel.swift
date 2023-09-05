@@ -8,7 +8,14 @@
 import Foundation
 
 final class RatingViewModel: ObservableObject {
+    enum UsersDataLoadingState {
+        case loading
+        case hasData
+        case noData
+    }
+    
     @Published var users: [UserData] = []
+    @Published var loadingState: UsersDataLoadingState = .loading
     @Published var error: InputError?
     
     func getAllUsersData() {
@@ -18,10 +25,15 @@ final class RatingViewModel: ObservableObject {
             switch result {
             case .success(let fetchedUsers):
                 self.users = fetchedUsers
-                print("Users received")
+                self.loadingState = users.isEmpty ? .noData : .hasData
+                
+                debugPrint("Users received")
+                
             case .failure(let fetchingUsersError):
-                error = InputError(message: fetchingUsersError.localizedDescription)
-                print("DEBUG: Error fetching users: \(fetchingUsersError.localizedDescription)")
+                self.error = InputError(message: fetchingUsersError.localizedDescription)
+                self.loadingState = .noData
+                
+                debugPrint("DEBUG: Error fetching users: \(fetchingUsersError.localizedDescription)")
             }
         }
     }

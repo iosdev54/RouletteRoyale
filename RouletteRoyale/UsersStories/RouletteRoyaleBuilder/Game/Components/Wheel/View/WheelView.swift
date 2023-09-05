@@ -52,7 +52,7 @@ struct WheelView: View {
                 .resizable()
                 .scaledToFit()
                 .rotationEffect(.degrees(Double(viewModel.angle + 3)), anchor: .center)
-                .animation(.easeInOut(duration: viewModel.isSpinning ? 3 : 0))
+                .animation(.easeInOut(duration: viewModel.isSpinning ? 3 : 0), value: viewModel.isSpinning)
                 .shadow(radius: 5)
             
             coloredArrow

@@ -31,7 +31,7 @@ struct LoginView: View {
                     .textFieldStyle(.roundedBorder)
             }
             
-            CustomButton(isLoading: $viewModel.isLoading, title: "Log In", color: .blue, completion: viewModel.signIn)
+            CustomButton(isLoading: viewModel.isLoading, title: "Log In", color: .blue, completion: viewModel.signIn)
                 .disabled(viewModel.isLoading)
                 .animation(.easeInOut, value: viewModel.isLoading)
         }

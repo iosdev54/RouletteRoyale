@@ -8,6 +8,13 @@
 import SwiftUI
 
 struct SettingsView: View {
+    private enum ButtonTitle: String {
+        case rateApp = "Rate app"
+        case shareApp = "Share App"
+        case logOut = "Log Out"
+        case deleteAccount = "Delete Account"
+    }
+    
     @StateObject private var viewModel = SettingsViewModel()
     @Binding var isLoggedIn: Bool
     @EnvironmentObject var userData: UserData
@@ -22,22 +29,24 @@ struct SettingsView: View {
                 
                 ScrollView {
                     VStack(spacing: geometry.size.width > geometry.size.height ? 15 : 30) {
-                        CustomButton(isLoading: $viewModel.isLoadingRateApp, title: "Rate app", color: .green, completion: viewModel.rateApp)
+                        CustomButton(title: ButtonTitle.rateApp.rawValue, color: .green, completion: viewModel.rateApp)
                             .padding(.top, 10)
                         
-                        CustomButton(isLoading: $viewModel.isLoadingShareApp, title: "Share App", color: .yellow, completion: viewModel.showActivityVC)
+                        CustomButton(title: ButtonTitle.shareApp.rawValue, color: .yellow, completion: viewModel.showActivityVC)
                         
-                        CustomButton(isLoading: $viewModel.isLoadingLogOut, title: "Log Out", color: .blue, completion: {
-                            viewModel.logOut(onSuccess: { isLoggedIn = false })
-                        })
+                        CustomButton(isLoading: viewModel.isLoadingLogOut, title: ButtonTitle.logOut.rawValue, color: .blue) {
+                            viewModel.logOut(onSuccess: { isLoggedIn = false }) }
                         .disabled(viewModel.isLoadingLogOut)
                         .animation(.easeInOut, value: viewModel.isLoadingLogOut)
                         
-                        CustomButton(isLoading: $viewModel.isLoadingDeleteAccount, title: "Delete Account", color: .red, completion: {
-                            viewModel.deleteAccount(onSuccess: { isLoggedIn = false })
-                        })
-                        .disabled(viewModel.isLoadingDeleteAccount)
-                        .animation(.easeInOut, value: viewModel.isLoadingDeleteAccount)
+                        CustomButton(title: ButtonTitle.deleteAccount.rawValue, color: .red) { viewModel.showDeleteConfirmation = true }
+                            .confirmationDialog("Delete Account", isPresented: $viewModel.showDeleteConfirmation) {
+                                Button("Delete", role: .destructive) {
+                                    viewModel.deleteAccount(onSuccess: { isLoggedIn = false })
+                                }
+                                Button("Cancel", role: .cancel) {}
+                            }
+                        
                     }
                     .padding(.horizontal)
                 }
@@ -51,7 +60,13 @@ struct SettingsView: View {
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
-        SettingsView(isLoggedIn: .constant(false))
-            .environmentObject(UserData())
+        ZStack {
+            Constants.Images.gameBackground
+                .resizable()
+                .ignoresSafeArea()
+            
+            SettingsView(isLoggedIn: .constant(false))
+                .environmentObject(UserData())
+        }
     }
 }

@@ -8,12 +8,9 @@
 import SwiftUI
 import StoreKit
 
-final class SettingsViewModel: ObservableObject {    
-    @Published var isLoadingRateApp = false
-    @Published var isLoadingShareApp = false
+final class SettingsViewModel: ObservableObject {
     @Published var isLoadingLogOut = false
-    @Published var isLoadingDeleteAccount = false
-    
+    @Published var showDeleteConfirmation = false
     @Published var error: InputError?
     
     func rateApp() {
@@ -52,30 +49,27 @@ final class SettingsViewModel: ObservableObject {
                 switch result {
                 case .success:
                     onSuccess()
-                    print("DEBUG: User logged out successfully")
+                    debugPrint("DEBUG: User logged out successfully")
                 case .failure(let signOutError):
                     self.error = InputError(message: signOutError.localizedDescription)
-                    print("DEBUG: Error signing out: \(signOutError.localizedDescription)")
+                    debugPrint("DEBUG: Error signing out: \(signOutError.localizedDescription)")
                 }
             }
         }
     }
     
     func deleteAccount(onSuccess: @escaping () -> Void) {
-        isLoadingDeleteAccount = true
-        
         FirebaseService.shared.deleteAccount { [weak self] result in
-            DispatchQueue.main.async { [weak self] in
+            DispatchQueue.main.async {
                 guard let `self` = self else { return }
-                self.isLoadingDeleteAccount = false
                 
                 switch result {
                 case .success:
                     onSuccess()
-                    print("DEBUG: User account deleted successfully")
+                    debugPrint("DEBUG: User account deleted successfully")
                 case .failure(let deleteError):
-                    error = InputError(message: deleteError.localizedDescription)
-                    print("DEBUG: Error deleting user account: \(deleteError.localizedDescription)")
+                    self.error = InputError(message: deleteError.localizedDescription)
+                    debugPrint("DEBUG: Error deleting user account: \(deleteError.localizedDescription)")
                 }
             }
         }
